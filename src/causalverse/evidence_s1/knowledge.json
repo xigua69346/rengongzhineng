@@ -1,0 +1,20 @@
+{
+  "version": "s1-knowledge-1",
+  "prompt_version": "s1-evidence-policy-1",
+  "catalog": [
+    {"id":"K01","title":"PCA/Threshold 冻结异常检测","boundary":"41 XMEAS；检测异常不等于已确定故障"},
+    {"id":"K02","title":"Static / VAR / Logistic 机制识别","boundary":"固定3600秒起点；评分不是概率；候选不是确定根因"},
+    {"id":"K03","title":"Action / Delta 有限时域预测","boundary":"历史5340..5390；起点5400；20成员；三动作；区间和支持拒绝必须保留"},
+    {"id":"K04","title":"研究范围","boundary":"历史TEP仿真；D3与D511不可跨链配对；没有当前运行重新识别的因果图"}
+  ],
+  "policy": "仅引用同一context内的evidence_id。证据不足必须说明。不编造数值、来源、概率或控制指令。不改变支持域、区间或优化授权。S1不调用LLM。",
+  "claim_schema": {
+    "type":"object","additionalProperties":false,
+    "required":["context_id","evidence_id","claim_type"],
+    "properties":{
+      "context_id":{"type":"string","pattern":"^[a-f0-9]{32}$"},
+      "evidence_id":{"type":"string","pattern":"^[a-f0-9]{32}$"},
+      "claim_type":{"enum":["COMPUTATION_AVAILABLE","INSUFFICIENT_EVIDENCE"]}
+    }
+  }
+}

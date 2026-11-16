@@ -1,0 +1,70 @@
+[
+  {
+    "audit_path": "artifacts/ai_s2_runs/5619d6906fc68302c4080c1486324389/ai/530cfe1c92f555388be12b4d2442987e_audit.json",
+    "sha256": "f2f1d101a9994d928e5493cb54cef7ae93d614096cb80f7645c556de6a054a08",
+    "audit": {
+      "request_id": "530cfe1c92f555388be12b4d2442987e",
+      "context_id": "c5ccd7c32e679e91f8703f0e8bcd667d",
+      "model": "deepseek-flash",
+      "contract": "d3-explanation-1",
+      "requested_at_utc": "2026-11-16T08:33:14.114743+00:00",
+      "snapshot_sha256": "082ceee3d3a31d8e39df436f81f63e530adb2781be432de53b3ac9ca146ed63a",
+      "status": "REJECTED",
+      "api_call_made": true,
+      "usage": {
+        "prompt_tokens": 4662,
+        "completion_tokens": 1131,
+        "total_tokens": 5793,
+        "prompt_cache_hit_tokens": 4480,
+        "prompt_cache_miss_tokens": 182
+      },
+      "cost_cny": null,
+      "cost_status": "USAGE_RECORDED_INVOICE_NOT_VERIFIED",
+      "analysis": [],
+      "optimization_allowed": false,
+      "generated_content_origin": "NONE",
+      "ml_evidence_preserved": true,
+      "transport_mode": "OFFICIAL_API",
+      "input_sha256": "ecfbcdf6200f1db5924c5c7578be734c6169af975eaa4d892771985fa0dc10e0",
+      "transport_invoked": true,
+      "attempts": 1,
+      "provider_request_id": "54b0a93a-b509-47b5-93d2-16537855f751",
+      "error_code": "AI_EVIDENCE_VALIDATION_FAILED",
+      "elapsed_ms": 4561.993199999961
+    }
+  },
+  {
+    "audit_path": "artifacts/ai_s2_runs/5619d6906fc68302c4080c1486324389/ai/68fca11e2a2848937f9cfabbaca8d5cb_audit.json",
+    "sha256": "f0c633ffde56e9a9dbf3eef70efd00f652c1b25a38da2626e8bfec11fd017002",
+    "audit": {
+      "request_id": "68fca11e2a2848937f9cfabbaca8d5cb",
+      "context_id": "c5ccd7c32e679e91f8703f0e8bcd667d",
+      "model": "deepseek-flash",
+      "contract": "d3-explanation-1",
+      "requested_at_utc": "2026-11-16T08:31:22.815655+00:00",
+      "snapshot_sha256": "082ceee3d3a31d8e39df436f81f63e530adb2781be432de53b3ac9ca146ed63a",
+      "status": "REJECTED",
+      "api_call_made": true,
+      "usage": {
+        "prompt_tokens": 4662,
+        "completion_tokens": 1109,
+        "total_tokens": 5771,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4662
+      },
+      "cost_cny": null,
+      "cost_status": "USAGE_RECORDED_INVOICE_NOT_VERIFIED",
+      "analysis": [],
+      "optimization_allowed": false,
+      "generated_content_origin": "NONE",
+      "ml_evidence_preserved": true,
+      "transport_mode": "OFFICIAL_API",
+      "input_sha256": "ecfbcdf6200f1db5924c5c7578be734c6169af975eaa4d892771985fa0dc10e0",
+      "transport_invoked": true,
+      "attempts": 1,
+      "provider_request_id": "d5371736-137d-49f9-aa9e-009aaa3d8423",
+      "error_code": "AI_EVIDENCE_VALIDATION_FAILED",
+      "elapsed_ms": 4483.21709999982
+    }
+  }
+]

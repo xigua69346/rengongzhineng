@@ -1,0 +1,16 @@
+{
+  "changes": [
+    {
+      "path": "src/causalverse/evidence_s2/runtime.py",
+      "before_sha256": "39db14ae1f0bc5287ce2cdb6ce3c00d4bf7f7621a29caa4fce1d8a0e2b68056b",
+      "after_sha256": "a4791b00362268e2ea3d5778ee54fe1a6cacc6d946af969830b3bf77dcc6277c"
+    },
+    {
+      "path": "src/causalverse/evidence_s2/explanation.py",
+      "before_sha256": "e9661af8b4beb0637879eddd3267e268a87833da21319b3bba811f65ed346920",
+      "after_sha256": "df434461b3613fcea522de4ae81a4d65982d27fb06ffb0b857e464972a5b6c76"
+    }
+  ],
+  "validator_ast_identical": true,
+  "reason": "Align provider prompt to unchanged maxItems=2 contract; add private redacted failure diagnostics"
+}

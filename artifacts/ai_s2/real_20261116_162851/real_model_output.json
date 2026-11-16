@@ -1,0 +1,67 @@
+{
+  "schema_version": "d3-explanation-1",
+  "context_id": "d90db5c70ba32cea3cfdccce3ffc3abf",
+  "snapshot_sha256": "de82643cda64fedade0a4d23baf82b9e8c48ae229a9972d5d1276b4643926732",
+  "findings": [
+    {
+      "rule": "METRIC_EVIDENCE",
+      "evidence_refs": [
+        {
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "fact_id": "0f3bdde0e5977ad236b11ab96de6b1f94b1dd428c119d8e186afe062eb3981cb",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca"
+        }
+      ]
+    },
+    {
+      "rule": "ALARM_EVIDENCE",
+      "evidence_refs": [
+        {
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "fact_id": "e3759d7c99e7fa41547433c561a51a5ac62a2181dea27cb8f1c79e2a896ae29a",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca"
+        }
+      ]
+    },
+    {
+      "rule": "DETECTOR_AGREEMENT",
+      "evidence_refs": [
+        {
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "fact_id": "0a6752a2ceed59365821619df179b73c686925e8b7aadd7bd2fc0f6b8f2360e3",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca"
+        },
+        {
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "fact_id": "2f15445b5519fa2e11d2d58315c0c8ff83e652dd33b41d725b61d8c736f5fc24",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca"
+        }
+      ]
+    },
+    {
+      "rule": "TEMPORAL_CHANGE",
+      "evidence_refs": [
+        {
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "fact_id": "3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca"
+        },
+        {
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "fact_id": "f022e38f14f94238ce78c693dab4d86b38a06d3031bb26a2c1e200fe6e16641a",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca"
+        }
+      ]
+    },
+    {
+      "rule": "INSUFFICIENT_ROOT_CAUSE",
+      "evidence_refs": [
+        {
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "fact_id": "3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca"
+        }
+      ]
+    }
+  ]
+}

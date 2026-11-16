@@ -1,0 +1,29 @@
+{
+  "authorized_changes": [
+    {
+      "path": "src/causalverse/evidence_s1/service.py",
+      "before_sha256": "723651570a3117ac430eda5c55a363647ceb6010f723a703924a48731f96d433",
+      "after_sha256": "1fe61755bbabce8736fb18be4431eac6a3f69bb4f1e198ccfa287d792ad5b5f2"
+    },
+    {
+      "path": "src/causalverse/evidence_s1/gateway.py",
+      "before_sha256": "4eabb5b62695bb364d896f6a9099c376ed12fe8491cf7d0c24deb587c73d73c5",
+      "after_sha256": "52d902a8e1b27219bfe7df14d6e8d177d953211e311c94af0e350021ddfe5c21"
+    },
+    {
+      "path": "src/causalverse/evidence_s1/console/index.html",
+      "before_sha256": "0f08ae79347541daf841a6fa51ed5107d57135e1f10659c65a3cb6a0a9b49efe",
+      "after_sha256": "d36056b23dfa5271db8a0788cfa70431e7b0feb739b82c6db44752c9ce81e1db"
+    },
+    {
+      "path": "src/causalverse/evidence_s1/console/app.js",
+      "before_sha256": "666e4ad404237d6e2c2a36a274874ff54e30823cba8763a06bf478304a40724a",
+      "after_sha256": "1b3ea886d503e2ac9ebe3ed959d0f183bf8b716d96eda1307bd870d24f672c02"
+    },
+    {
+      "path": "src/causalverse/evidence_s1/console/style.css",
+      "before_sha256": "59b4655847a64d2e6e90283de8d868023bd35f55649d895f2b82c918579cad4d",
+      "after_sha256": "568a49a9d68ca54b93ae90ea08c37f2f00511aac007a4f2cc09fd22b0ed10ad0"
+    }
+  ]
+}

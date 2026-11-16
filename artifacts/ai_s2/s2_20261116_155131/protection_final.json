@@ -1,0 +1,41 @@
+{
+  "original_8992": {
+    "expected_count": 8992,
+    "checked_count": 8992,
+    "changed_hashes": [],
+    "missing_files": [],
+    "verification_errors": [],
+    "accepted_s11_transitions": []
+  },
+  "s1_572": {
+    "expected_count": 572,
+    "checked_count": 572,
+    "changed_hashes": [],
+    "missing_files": [],
+    "verification_errors": [],
+    "accepted_s11_transitions": [
+      "src/causalverse/evidence_s1/console/app.js",
+      "src/causalverse/evidence_s1/console/index.html",
+      "src/causalverse/evidence_s1/console/style.css",
+      "src/causalverse/evidence_s1/gateway.py",
+      "src/causalverse/evidence_s1/service.py"
+    ]
+  },
+  "s11_717": {
+    "expected_count": 717,
+    "checked_count": 717,
+    "changed_hashes": [],
+    "missing_files": [],
+    "verification_errors": [],
+    "accepted_s11_transitions": []
+  },
+  "supplement_53": {
+    "expected_count": 53,
+    "checked_count": 53,
+    "changed_hashes": [],
+    "missing_files": [],
+    "verification_errors": [],
+    "accepted_s11_transitions": []
+  },
+  "unknown_files": []
+}

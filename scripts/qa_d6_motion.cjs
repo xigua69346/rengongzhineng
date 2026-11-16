@@ -1,0 +1,30 @@
+const {chromium}=require(process.env.CAUSALVERSE_PLAYWRIGHT_MODULE);
+const fs=require('fs');
+(async()=>{
+ fs.mkdirSync('artifacts/d6-motion',{recursive:true});
+ const browser=await chromium.launch({executablePath:'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',headless:true});
+ const page=await browser.newPage({viewport:{width:1540,height:1080}});
+ const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+ await page.goto('http://127.0.0.1:8767');await page.locator('.metrics').waitFor();
+ const snap=()=>page.locator('.hmi-panel').evaluate(el=>({flow:el.querySelector('.flow').style.strokeDashoffset,jacket:el.querySelector('.jacket-flow').style.strokeDashoffset,mixer:el.querySelector('.agitator').getAttribute('transform'),pointer:el.querySelector('.command-pointer').getAttribute('transform'),text:el.querySelector('.hmi-status').textContent}));
+ const seek=async t=>{await page.locator('input[type=range]').evaluate((el,t)=>{el.value=String(t);el.dispatchEvent(new Event('input',{bubbles:true}))},t);await page.waitForTimeout(100)};
+ const a=await snap();await page.waitForTimeout(350);if(JSON.stringify(a)!==JSON.stringify(await snap()))throw Error('Paused animation drifting');
+ await page.getByRole('button',{name:/播放回放/}).click();await page.waitForTimeout(850);const b=await snap();
+ if(a.flow===b.flow||a.mixer===b.mixer||a.jacket===b.jacket)throw Error('Animation not advancing');
+ await page.getByRole('button',{name:/暂停回放/}).click();const c=await snap();await page.waitForTimeout(450);if(JSON.stringify(c)!==JSON.stringify(await snap()))throw Error('Pause failed');
+ await page.getByRole('button',{name:/播放回放/}).click();await page.waitForTimeout(700);const d=await snap();if(c.mixer===d.mixer)throw Error('Resume failed');for(let i=0;i<10;i++){await page.locator('.hmi-panel').screenshot({path:'artifacts/d6-motion/frame-'+i+'.png'});await page.waitForTimeout(80)}await page.getByRole('button',{name:/暂停回放/}).click();
+ await seek(5400);const e=await snap();await seek(3701);const f=await snap();await seek(5400);if(JSON.stringify(e)!==JSON.stringify(await snap()))throw Error('Seek phase nondeterministic');
+ await page.screenshot({path:'artifacts/d6-motion/overview.png',fullPage:true});await page.locator('.hmi-panel').screenshot({path:'artifacts/d6-motion/process.png'});
+ await page.locator('.toolbar select').first().selectOption('test_f00_19');await page.waitForTimeout(450);await page.locator('.metrics').waitFor();const changed=await snap();
+ if(e.pointer===changed.pointer)throw Error('Run command did not update');if(changed.flow!==e.flow||changed.mixer!==e.mixer)throw Error('Run switch left stale phase');
+ await page.locator('.toolbar select').first().selectOption('test_f14_00');await page.waitForTimeout(450);await page.locator('.metrics').waitFor();
+ const response=await page.request.get('http://127.0.0.1:8767/api/detection?run=test_f14_00');const det=await response.json();const index=det.t_seconds.indexOf(5400);const expected=[8,20,6].filter(i=>det.variable_threshold_scores[index][i]>det.limits.Threshold).length;
+ const actual=await page.locator('.instrument-card.point-alert').count();if(actual!==expected)throw Error('Sensor alarm mapping');
+ const visited=[];for(let i=0;i<7;i++){await page.locator('nav button').nth(i).click();await page.waitForTimeout(120);visited.push(await page.locator('h1').textContent())}
+ await page.locator('nav button').first().click();await page.emulateMedia({reducedMotion:'reduce'});const still=await snap();await page.getByRole('button',{name:/播放回放/}).click();await page.waitForTimeout(350);if(still.flow!==(await snap()).flow)throw Error('Reduced motion ignored');await page.getByRole('button',{name:/暂停回放/}).click();await page.emulateMedia({reducedMotion:'no-preference'});
+ await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await page.screenshot({path:'artifacts/d6-motion/mobile.png',fullPage:true});if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2))throw Error('Mobile overflow');
+ await page.setViewportSize({width:1920,height:1080});await page.evaluate(()=>document.body.style.zoom='125%');await page.waitForTimeout(150);if(!await page.locator('.hmi-panel').isVisible())throw Error('Scaled HMI missing');
+ if((await page.locator('body').innerText()).includes('CausalVerse'))throw Error('Legacy brand');
+ await page.close();const videoPath='Live browser frames: frame-0.png through frame-9.png';await browser.close();
+ fs.writeFileSync('artifacts/d6-motion/browser-qa.json',JSON.stringify({errors,visited,initial:a,playing:b,paused:c,resumed:d,seek:f,changedRun:changed,deterministicSeek:true,pauseStable:true,resumeVerified:true,sensorAlarmCount:actual,expectedSensorAlarmCount:expected,mobileAndScaleVerified:true,reducedMotionVerified:true,video:videoPath},null,2));if(errors.length)process.exit(1);
+})().catch(e=>{console.error(e);process.exit(1)});

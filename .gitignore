@@ -1,0 +1,8 @@
+.research/venv-*/
+.research/upstream/
+.research/mpl-cache/
+__pycache__/
+.pytest_cache/
+.venv-*/
+build/
+src/*.egg-info/

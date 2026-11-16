@@ -1,0 +1,230 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0 -- D:\�����˹����ܴ���\.research\venv-tep\Scripts\python.exe
+rootdir: D:\�����˹����ܴ���
+configfile: pyproject.toml
+collecting ... collected 29 items
+
+s2_tests/test_deepseek.py::test_verified_rendering_and_sanitized_input PASSED [  3%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[foreign_context] PASSED [  6%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[foreign_fact] PASSED [ 10%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[forged_payload] PASSED [ 13%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[invented_value] PASSED [ 17%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[probability] PASSED [ 20%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[root_cause] PASSED [ 24%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[observation] PASSED [ 27%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[authorization] PASSED [ 31%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[injection] PASSED [ 34%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[format] PASSED    [ 37%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[relation] PASSED  [ 41%]
+s2_tests/test_deepseek.py::test_output_attack_rejected[missing_limitation] PASSED [ 44%]
+s2_tests/test_deepseek.py::test_missing_key_no_network PASSED            [ 48%]
+s2_tests/test_deepseek.py::test_engine_degradation_transport_fixture[timeout] PASSED [ 51%]
+s2_tests/test_deepseek.py::test_engine_degradation_transport_fixture[error] PASSED [ 55%]
+s2_tests/test_deepseek.py::test_engine_degradation_transport_fixture[format] PASSED [ 58%]
+s2_tests/test_deepseek.py::test_engine_degradation_transport_fixture[invalid_ref] PASSED [ 62%]
+s2_tests/test_deepseek.py::test_engine_degradation_transport_fixture[normal_fixture] PASSED [ 65%]
+s2_tests/test_deepseek.py::test_http_client_retries_and_redacts[401] PASSED [ 68%]
+s2_tests/test_deepseek.py::test_http_client_retries_and_redacts[402] PASSED [ 72%]
+s2_tests/test_deepseek.py::test_http_client_retries_and_redacts[429] PASSED [ 75%]
+s2_tests/test_deepseek.py::test_http_client_retries_and_redacts[500] PASSED [ 79%]
+s2_tests/test_deepseek.py::test_http_client_retries_and_redacts[503] PASSED [ 82%]
+s2_tests/test_deepseek.py::test_normal_client_transport_fixture PASSED   [ 86%]
+s2_tests/test_deepseek.py::test_endpoint_key_exfiltration_blocked PASSED [ 89%]
+s2_tests/test_deepseek.py::test_strict_parser PASSED                     [ 93%]
+s2_tests/test_deepseek.py::test_http_missing_key_flow FAILED             [ 96%]
+s2_tests/test_diagnostic.py::test_failed_output_is_private_redacted_and_still_rejected PASSED [100%]
+
+================================== FAILURES ===================================
+_________________________ test_http_missing_key_flow __________________________
+
+self = <urllib.request.HTTPHandler object at 0x000001169E2BB2F0>
+http_class = <class 'http.client.HTTPConnection'>
+req = <urllib.request.Request object at 0x000001169DA25C70>, http_conn_args = {}
+
+    def do_open(self, http_class, req, **http_conn_args):
+        """Return an HTTPResponse object for the request, using http_class.
+    
+        http_class must implement the HTTPConnection API from http.client.
+        """
+        host = req.host
+        if not host:
+            raise URLError('no host given')
+    
+        # will parse host:port
+        h = http_class(host, timeout=req.timeout, **http_conn_args)
+        h.set_debuglevel(self._debuglevel)
+    
+        headers = dict(req.unredirected_hdrs)
+        headers.update({k: v for k, v in req.headers.items()
+                        if k not in headers})
+    
+        # TODO(jhylton): Should this be redesigned to handle
+        # persistent connections?
+    
+        # We want to make an HTTP/1.1 request, but the addinfourl
+        # class isn't prepared to deal with a persistent connection.
+        # It will try to read all remaining data from the socket,
+        # which will block while the server waits for the next request.
+        # So make sure the connection gets closed after the (only)
+        # request.
+        headers["Connection"] = "close"
+        headers = {name.title(): val for name, val in headers.items()}
+    
+        if req._tunnel_host:
+            tunnel_headers = {}
+            proxy_auth_hdr = "Proxy-Authorization"
+            if proxy_auth_hdr in headers:
+                tunnel_headers[proxy_auth_hdr] = headers[proxy_auth_hdr]
+                # Proxy-Authorization should not be sent to origin
+                # server.
+                del headers[proxy_auth_hdr]
+            h.set_tunnel(req._tunnel_host, headers=tunnel_headers)
+    
+        try:
+            try:
+>               h.request(req.get_method(), req.selector, req.data, headers,
+                          encode_chunked=req.has_header('Transfer-encoding'))
+
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:1344: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\http\client.py:1386: in request
+    self._send_request(method, url, body, headers, encode_chunked)
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\http\client.py:1432: in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\http\client.py:1381: in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\http\client.py:1141: in _send_output
+    self.send(msg)
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\http\client.py:1085: in send
+    self.connect()
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\http\client.py:1051: in connect
+    self.sock = self._create_connection(
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\socket.py:865: in create_connection
+    raise exceptions[0]
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+address = ('127.0.0.1', 53858), timeout = <object object at 0x00000116BC1A9260>
+source_address = None, all_errors = False
+
+    def create_connection(address, timeout=_GLOBAL_DEFAULT_TIMEOUT,
+                          source_address=None, *, all_errors=False):
+        """Connect to *address* and return the socket object.
+    
+        Convenience function.  Connect to *address* (a 2-tuple ``(host,
+        port)``) and return the socket object.  Passing the optional
+        *timeout* parameter will set the timeout on the socket instance
+        before attempting to connect.  If no *timeout* is supplied, the
+        global default timeout setting returned by :func:`getdefaulttimeout`
+        is used.  If *source_address* is set it must be a tuple of (host, port)
+        for the socket to bind as a source address before making the connection.
+        A host of '' or port 0 tells the OS to use the default. When a connection
+        cannot be created, raises the last error if *all_errors* is False,
+        and an ExceptionGroup of all errors if *all_errors* is True.
+        """
+    
+        host, port = address
+        exceptions = []
+        for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            sock = None
+            try:
+                sock = socket(af, socktype, proto)
+                if timeout is not _GLOBAL_DEFAULT_TIMEOUT:
+                    sock.settimeout(timeout)
+                if source_address:
+                    sock.bind(source_address)
+>               sock.connect(sa)
+E               PermissionError: [WinError 10013] ��һ�ַ���Ȩ�޲������ķ�ʽ����һ�������׽��ֵĳ��ԡ�
+
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\socket.py:850: PermissionError
+
+During handling of the above exception, another exception occurred:
+
+real = (<causalverse.evidence_s1.service.EvidenceService object at 0x000001169DA9C170>, {'schema_version': 's1-evidence-1', '...9f2479d48', 'snapshot_sha256': 'b71399dde46b0acd79d96906f0abb4a1bcd228839e4da873648b3777d569a2e1', 'as_of': 5400, ...})
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001169E2B9E20>
+
+    def test_http_missing_key_flow(real,monkeypatch):
+        monkeypatch.delenv('DEEPSEEK_API_KEY',raising=False)
+        s,c,b=real;engine=ExplanationRuntime(s,ROOT/'http_missing')
+        server=attach(make_server(s,0),engine);t=threading.Thread(target=server.serve_forever,daemon=True);t.start()
+        client=urllib.request.build_opener(urllib.request.ProxyHandler({}),urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()));base='http://127.0.0.1:'+str(server.server_port)
+        def get(p):return json.load(client.open(base+p))
+        def post(p,value,token):return json.load(client.open(urllib.request.Request(base+p,data=json.dumps(value).encode(),headers={'Content-Type':'application/json','X-CSRF-Token':token}),timeout=30))
+        try:
+>           csrf=get('/api/session')['csrf'];case=next(c for c in get('/api/catalog') if c['chain']=='D3')
+                 ^^^^^^^^^^^^^^^^^^^
+
+s2_tests\test_deepseek.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+s2_tests\test_deepseek.py:115: in get
+    def get(p):return json.load(client.open(base+p))
+                                ^^^^^^^^^^^^^^^^^^^
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:515: in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:532: in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:492: in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:1373: in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <urllib.request.HTTPHandler object at 0x000001169E2BB2F0>
+http_class = <class 'http.client.HTTPConnection'>
+req = <urllib.request.Request object at 0x000001169DA25C70>, http_conn_args = {}
+
+    def do_open(self, http_class, req, **http_conn_args):
+        """Return an HTTPResponse object for the request, using http_class.
+    
+        http_class must implement the HTTPConnection API from http.client.
+        """
+        host = req.host
+        if not host:
+            raise URLError('no host given')
+    
+        # will parse host:port
+        h = http_class(host, timeout=req.timeout, **http_conn_args)
+        h.set_debuglevel(self._debuglevel)
+    
+        headers = dict(req.unredirected_hdrs)
+        headers.update({k: v for k, v in req.headers.items()
+                        if k not in headers})
+    
+        # TODO(jhylton): Should this be redesigned to handle
+        # persistent connections?
+    
+        # We want to make an HTTP/1.1 request, but the addinfourl
+        # class isn't prepared to deal with a persistent connection.
+        # It will try to read all remaining data from the socket,
+        # which will block while the server waits for the next request.
+        # So make sure the connection gets closed after the (only)
+        # request.
+        headers["Connection"] = "close"
+        headers = {name.title(): val for name, val in headers.items()}
+    
+        if req._tunnel_host:
+            tunnel_headers = {}
+            proxy_auth_hdr = "Proxy-Authorization"
+            if proxy_auth_hdr in headers:
+                tunnel_headers[proxy_auth_hdr] = headers[proxy_auth_hdr]
+                # Proxy-Authorization should not be sent to origin
+                # server.
+                del headers[proxy_auth_hdr]
+            h.set_tunnel(req._tunnel_host, headers=tunnel_headers)
+    
+        try:
+            try:
+                h.request(req.get_method(), req.selector, req.data, headers,
+                          encode_chunked=req.has_header('Transfer-encoding'))
+            except OSError as err: # timeout error
+>               raise URLError(err)
+E               urllib.error.URLError: <urlopen error [WinError 10013] ��һ�ַ���Ȩ�޲������ķ�ʽ����һ�������׽��ֵĳ��ԡ�>
+
+C:\Users\Ҷ�Ӻ�\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\urllib\request.py:1347: URLError
+- generated xml file: D:\�����˹����ܴ���\artifacts\ai_s2\real_20261116_162851\diagnostic_tests.xml -
+=========================== short test summary info ===========================
+FAILED s2_tests/test_deepseek.py::test_http_missing_key_flow - urllib.error.U...
+======================== 1 failed, 28 passed in 4.38s =========================

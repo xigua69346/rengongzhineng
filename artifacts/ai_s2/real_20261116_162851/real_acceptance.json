@@ -1,0 +1,414 @@
+{
+  "real_api_calls": 4,
+  "validated_calls": 1,
+  "rejected_calls": 3,
+  "same_registered_case": true,
+  "numerical_model_arrays_identical_across_restarts": true,
+  "actual_provider_usage": {
+    "prompt_tokens": 19120,
+    "completion_tokens": 4328,
+    "total_tokens": 23448,
+    "prompt_cache_hit_tokens": 4736,
+    "prompt_cache_miss_tokens": 14384
+  },
+  "price_estimate_only": {
+    "cny_peak": 0.06358144,
+    "cny_idle": 0.03179072,
+    "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "invoice_verified": false
+  },
+  "calls": [
+    {
+      "audit": {
+        "request_id": "68fca11e2a2848937f9cfabbaca8d5cb",
+        "context_id": "c5ccd7c32e679e91f8703f0e8bcd667d",
+        "model": "deepseek-flash",
+        "contract": "d3-explanation-1",
+        "requested_at_utc": "2026-11-16T08:31:22.815655+00:00",
+        "snapshot_sha256": "082ceee3d3a31d8e39df436f81f63e530adb2781be432de53b3ac9ca146ed63a",
+        "status": "REJECTED",
+        "api_call_made": true,
+        "usage": {
+          "prompt_tokens": 4662,
+          "completion_tokens": 1109,
+          "total_tokens": 5771,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 4662
+        },
+        "cost_cny": null,
+        "cost_status": "USAGE_RECORDED_INVOICE_NOT_VERIFIED",
+        "analysis": [],
+        "optimization_allowed": false,
+        "generated_content_origin": "NONE",
+        "ml_evidence_preserved": true,
+        "transport_mode": "OFFICIAL_API",
+        "input_sha256": "ecfbcdf6200f1db5924c5c7578be734c6169af975eaa4d892771985fa0dc10e0",
+        "transport_invoked": true,
+        "attempts": 1,
+        "provider_request_id": "d5371736-137d-49f9-aa9e-009aaa3d8423",
+        "error_code": "AI_EVIDENCE_VALIDATION_FAILED",
+        "elapsed_ms": 4483.21709999982
+      },
+      "audit_source": "artifacts/ai_s2_runs/5619d6906fc68302c4080c1486324389/ai/68fca11e2a2848937f9cfabbaca8d5cb_audit.json",
+      "audit_sha256": "f0c633ffde56e9a9dbf3eef70efd00f652c1b25a38da2626e8bfec11fd017002",
+      "source_model": {
+        "model_id": [
+          "d3.pca",
+          "d3.threshold"
+        ],
+        "model_hash": {
+          "d3.pca": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2",
+          "d3.threshold": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2"
+        },
+        "model_version": {
+          "d3.pca": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b",
+          "d3.threshold": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b"
+        }
+      }
+    },
+    {
+      "audit": {
+        "request_id": "530cfe1c92f555388be12b4d2442987e",
+        "context_id": "c5ccd7c32e679e91f8703f0e8bcd667d",
+        "model": "deepseek-flash",
+        "contract": "d3-explanation-1",
+        "requested_at_utc": "2026-11-16T08:33:14.114743+00:00",
+        "snapshot_sha256": "082ceee3d3a31d8e39df436f81f63e530adb2781be432de53b3ac9ca146ed63a",
+        "status": "REJECTED",
+        "api_call_made": true,
+        "usage": {
+          "prompt_tokens": 4662,
+          "completion_tokens": 1131,
+          "total_tokens": 5793,
+          "prompt_cache_hit_tokens": 4480,
+          "prompt_cache_miss_tokens": 182
+        },
+        "cost_cny": null,
+        "cost_status": "USAGE_RECORDED_INVOICE_NOT_VERIFIED",
+        "analysis": [],
+        "optimization_allowed": false,
+        "generated_content_origin": "NONE",
+        "ml_evidence_preserved": true,
+        "transport_mode": "OFFICIAL_API",
+        "input_sha256": "ecfbcdf6200f1db5924c5c7578be734c6169af975eaa4d892771985fa0dc10e0",
+        "transport_invoked": true,
+        "attempts": 1,
+        "provider_request_id": "54b0a93a-b509-47b5-93d2-16537855f751",
+        "error_code": "AI_EVIDENCE_VALIDATION_FAILED",
+        "elapsed_ms": 4561.993199999961
+      },
+      "audit_source": "artifacts/ai_s2_runs/5619d6906fc68302c4080c1486324389/ai/530cfe1c92f555388be12b4d2442987e_audit.json",
+      "audit_sha256": "f2f1d101a9994d928e5493cb54cef7ae93d614096cb80f7645c556de6a054a08",
+      "source_model": {
+        "model_id": [
+          "d3.pca",
+          "d3.threshold"
+        ],
+        "model_hash": {
+          "d3.pca": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2",
+          "d3.threshold": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2"
+        },
+        "model_version": {
+          "d3.pca": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b",
+          "d3.threshold": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b"
+        }
+      }
+    },
+    {
+      "audit": {
+        "request_id": "9115b6fe6d5804e14ed0101aaf4afc25",
+        "context_id": "12535a76d32ce88b22a5ab4f1a770df2",
+        "model": "deepseek-flash",
+        "contract": "d3-explanation-1",
+        "requested_at_utc": "2026-11-16T08:43:50.768635+00:00",
+        "snapshot_sha256": "be570f521d32dcb416d4de5d7d6f965a9dd370442ece57a6429cb0cf6adce1bc",
+        "status": "REJECTED",
+        "api_call_made": true,
+        "usage": {
+          "prompt_tokens": 4699,
+          "completion_tokens": 1144,
+          "total_tokens": 5843,
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 4443
+        },
+        "cost_cny": null,
+        "cost_status": "USAGE_RECORDED_INVOICE_NOT_VERIFIED",
+        "analysis": [],
+        "optimization_allowed": false,
+        "generated_content_origin": "NONE",
+        "ml_evidence_preserved": true,
+        "transport_mode": "OFFICIAL_API",
+        "input_sha256": "20b5a103dfc6db39650980c79182f17c6d0acc76207a9ac4cfd841e0702c06e6",
+        "transport_invoked": true,
+        "attempts": 1,
+        "provider_request_id": "1d4f51bb-ec1b-4d24-9370-cc4ba5330ab2",
+        "error_code": "AI_EVIDENCE_VALIDATION_FAILED",
+        "validation_error_code": "AI_REFERENCE_LIMIT",
+        "elapsed_ms": 4360.248400000273
+      },
+      "audit_source": "artifacts/ai_s2_runs/077b17de4b22171a3a3bae9a5916e9bd/ai/9115b6fe6d5804e14ed0101aaf4afc25_audit.json",
+      "audit_sha256": "23d0f27c7904107c4171785c7507ae74dca8260fec2c4d76b414318d5fc30776",
+      "source_model": {
+        "model_id": [
+          "d3.pca",
+          "d3.threshold"
+        ],
+        "model_hash": {
+          "d3.pca": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2",
+          "d3.threshold": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2"
+        },
+        "model_version": {
+          "d3.pca": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b",
+          "d3.threshold": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b"
+        }
+      }
+    },
+    {
+      "audit": {
+        "request_id": "c2a0ac1ae0fdadfba8a9d5c5a729a936",
+        "context_id": "d90db5c70ba32cea3cfdccce3ffc3abf",
+        "model": "deepseek-flash",
+        "contract": "d3-explanation-1",
+        "requested_at_utc": "2026-11-16T08:51:43.582955+00:00",
+        "snapshot_sha256": "de82643cda64fedade0a4d23baf82b9e8c48ae229a9972d5d1276b4643926732",
+        "status": "VALIDATED",
+        "api_call_made": true,
+        "usage": {
+          "prompt_tokens": 5097,
+          "completion_tokens": 944,
+          "total_tokens": 6041,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 5097
+        },
+        "cost_cny": null,
+        "cost_status": "USAGE_RECORDED_INVOICE_NOT_VERIFIED",
+        "analysis": [
+          {
+            "rule": "METRIC_EVIDENCE",
+            "claim": {
+              "claim_id": "finding_0",
+              "claim_type": "FACT",
+              "facts": [
+                {
+                  "fact_id": "0f3bdde0e5977ad236b11ab96de6b1f94b1dd428c119d8e186afe062eb3981cb",
+                  "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+                  "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+                  "pointer": "/data/arrays/T2/17",
+                  "value": 57.86709703253733,
+                  "semantic": "DETECTION_METRIC",
+                  "dimensions": {
+                    "metric": "T2",
+                    "observation_time": 4860
+                  },
+                  "unit": "dimensionless",
+                  "source_kind": "RECOMPUTED_FROZEN",
+                  "evidence_status": "INFERRED",
+                  "method": "detection"
+                }
+              ],
+              "optimization_allowed": false,
+              "validation_status": "VERIFIED",
+              "source_mode": "HISTORICAL_TEP_SIMULATION"
+            },
+            "text": "T2在4860秒的真实重算值为57.86709703253733。该统计量反映模型内偏离程度，不是故障概率。",
+            "text_origin": "BACKEND_VERIFIED_RENDERING",
+            "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+            "optimization_allowed": false
+          },
+          {
+            "rule": "ALARM_EVIDENCE",
+            "claim": {
+              "claim_id": "finding_1",
+              "claim_type": "FACT",
+              "facts": [
+                {
+                  "fact_id": "e3759d7c99e7fa41547433c561a51a5ac62a2181dea27cb8f1c79e2a896ae29a",
+                  "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+                  "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+                  "pointer": "/data/arrays/pred_Threshold/18",
+                  "value": true,
+                  "semantic": "DETECTION_METRIC",
+                  "dimensions": {
+                    "metric": "pred_Threshold",
+                    "observation_time": 5040
+                  },
+                  "unit": "dimensionless",
+                  "source_kind": "RECOMPUTED_FROZEN",
+                  "evidence_status": "INFERRED",
+                  "method": "detection"
+                }
+              ],
+              "optimization_allowed": false,
+              "validation_status": "VERIFIED",
+              "source_mode": "HISTORICAL_TEP_SIMULATION"
+            },
+            "text": "pred_Threshold在5040秒的原报警结果为True；保持原控制限和报警规则。",
+            "text_origin": "BACKEND_VERIFIED_RENDERING",
+            "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+            "optimization_allowed": false
+          },
+          {
+            "rule": "DETECTOR_AGREEMENT",
+            "claim": {
+              "claim_id": "finding_2",
+              "claim_type": "FACT",
+              "facts": [
+                {
+                  "fact_id": "0a6752a2ceed59365821619df179b73c686925e8b7aadd7bd2fc0f6b8f2360e3",
+                  "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+                  "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+                  "pointer": "/data/arrays/pred_PCA/17",
+                  "value": true,
+                  "semantic": "DETECTION_METRIC",
+                  "dimensions": {
+                    "metric": "pred_PCA",
+                    "observation_time": 4860
+                  },
+                  "unit": "dimensionless",
+                  "source_kind": "RECOMPUTED_FROZEN",
+                  "evidence_status": "INFERRED",
+                  "method": "detection"
+                },
+                {
+                  "fact_id": "2f15445b5519fa2e11d2d58315c0c8ff83e652dd33b41d725b61d8c736f5fc24",
+                  "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+                  "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+                  "pointer": "/data/arrays/pred_Threshold/17",
+                  "value": false,
+                  "semantic": "DETECTION_METRIC",
+                  "dimensions": {
+                    "metric": "pred_Threshold",
+                    "observation_time": 4860
+                  },
+                  "unit": "dimensionless",
+                  "source_kind": "RECOMPUTED_FROZEN",
+                  "evidence_status": "INFERRED",
+                  "method": "detection"
+                }
+              ],
+              "optimization_allowed": false,
+              "validation_status": "VERIFIED",
+              "source_mode": "HISTORICAL_TEP_SIMULATION"
+            },
+            "text": "4860秒PCA与Threshold的报警判断存在分歧；这属于检测证据对照，不构成确定物理根因。",
+            "text_origin": "BACKEND_VERIFIED_RENDERING",
+            "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+            "optimization_allowed": false
+          },
+          {
+            "rule": "TEMPORAL_CHANGE",
+            "claim": {
+              "claim_id": "finding_3",
+              "claim_type": "FACT",
+              "facts": [
+                {
+                  "fact_id": "3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca",
+                  "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+                  "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+                  "pointer": "/data/arrays/T2/0",
+                  "value": 25.996666956458284,
+                  "semantic": "DETECTION_METRIC",
+                  "dimensions": {
+                    "metric": "T2",
+                    "observation_time": 1800
+                  },
+                  "unit": "dimensionless",
+                  "source_kind": "RECOMPUTED_FROZEN",
+                  "evidence_status": "INFERRED",
+                  "method": "detection"
+                },
+                {
+                  "fact_id": "f022e38f14f94238ce78c693dab4d86b38a06d3031bb26a2c1e200fe6e16641a",
+                  "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+                  "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+                  "pointer": "/data/arrays/T2/20",
+                  "value": 35.40702446769979,
+                  "semantic": "DETECTION_METRIC",
+                  "dimensions": {
+                    "metric": "T2",
+                    "observation_time": 5400
+                  },
+                  "unit": "dimensionless",
+                  "source_kind": "RECOMPUTED_FROZEN",
+                  "evidence_status": "INFERRED",
+                  "method": "detection"
+                }
+              ],
+              "optimization_allowed": false,
+              "validation_status": "VERIFIED",
+              "source_mode": "HISTORICAL_TEP_SIMULATION"
+            },
+            "text": "T2在1800秒为25.996666956458284，在5400秒为35.40702446769979。有限观测对照不能推断完整发展过程或因果关系。",
+            "text_origin": "BACKEND_VERIFIED_RENDERING",
+            "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+            "optimization_allowed": false
+          },
+          {
+            "rule": "INSUFFICIENT_ROOT_CAUSE",
+            "claim": {
+              "claim_id": "finding_4",
+              "claim_type": "INSUFFICIENT_EVIDENCE",
+              "facts": [
+                {
+                  "fact_id": "3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca",
+                  "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+                  "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+                  "pointer": "/data/arrays/T2/0",
+                  "value": 25.996666956458284,
+                  "semantic": "DETECTION_METRIC",
+                  "dimensions": {
+                    "metric": "T2",
+                    "observation_time": 1800
+                  },
+                  "unit": "dimensionless",
+                  "source_kind": "RECOMPUTED_FROZEN",
+                  "evidence_status": "INFERRED",
+                  "method": "detection"
+                }
+              ],
+              "optimization_allowed": false,
+              "validation_status": "INSUFFICIENT_EVIDENCE",
+              "source_mode": "HISTORICAL_TEP_SIMULATION",
+              "refusal_reason": "CLAIM_LIMITED_TO_REFERENCED_EVIDENCE"
+            },
+            "text": "现有统计检测证据不足以确定物理故障根因；没有验证因果路径或干预授权。历史仿真不能表述为现场实时观测。",
+            "text_origin": "BACKEND_VERIFIED_RENDERING",
+            "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+            "optimization_allowed": false
+          }
+        ],
+        "optimization_allowed": false,
+        "generated_content_origin": "REAL_DEEPSEEK_STRUCTURED_SELECTION",
+        "ml_evidence_preserved": true,
+        "transport_mode": "OFFICIAL_API",
+        "input_sha256": "2a367bde68b8fc144051855c07bf07f2b3de82fd1b1931b3b3fae55275018c27",
+        "transport_invoked": true,
+        "prompt_version": "d3-explanation-policy-2",
+        "prompt_sha256": "246ee8b46635302468abda75081cb43a2158b3f9476ea5fae721de74d55da080",
+        "attempts": 1,
+        "provider_request_id": "7dcc5ec2-2a87-4c26-b6e6-eaba0eaf57f0",
+        "text_origin": "BACKEND_VERIFIED_RENDERING",
+        "elapsed_ms": 3695.560099999966
+      },
+      "audit_source": "artifacts/ai_s2_runs/84ab6af148e1eb0a16eb7f5345248b60/ai/c2a0ac1ae0fdadfba8a9d5c5a729a936_audit.json",
+      "audit_sha256": "5d3b7c6c1a529bc5e77aed1426af6ccfd84639d92ef7864b8176813ea09b6090",
+      "source_model": {
+        "model_id": [
+          "d3.pca",
+          "d3.threshold"
+        ],
+        "model_hash": {
+          "d3.pca": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2",
+          "d3.threshold": "8a5cd3c24c5c32d85af005e2b31f9f968c89a96e534e8997d2353bbaa21c74a2"
+        },
+        "model_version": {
+          "d3.pca": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b",
+          "d3.threshold": "registry-sha256:2022fda9844719ea655b3cb0a41fd841b6fab674c1f12ce116173ac44e0d1f3b"
+        }
+      }
+    }
+  ],
+  "successful_output_replayed_exactly": true,
+  "successful_findings": 5,
+  "negative_replays": 8
+}

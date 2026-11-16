@@ -1,0 +1,42 @@
+[
+  {
+    "attack": "forged_id",
+    "status": "REJECTED",
+    "reason": "AI_FACT_SCOPE"
+  },
+  {
+    "attack": "cross_context",
+    "status": "REJECTED",
+    "reason": "AI_CONTEXT_HASH"
+  },
+  {
+    "attack": "fake_value",
+    "status": "REJECTED",
+    "reason": "AI_RULE"
+  },
+  {
+    "attack": "probability",
+    "status": "REJECTED",
+    "reason": "AI_RULE"
+  },
+  {
+    "attack": "confirmed_root",
+    "status": "REJECTED",
+    "reason": "AI_RULE"
+  },
+  {
+    "attack": "future_observation",
+    "status": "REJECTED",
+    "reason": "AI_RULE"
+  },
+  {
+    "attack": "optimization",
+    "status": "REJECTED",
+    "reason": "AI_RULE"
+  },
+  {
+    "attack": "three_references",
+    "status": "REJECTED",
+    "reason": "AI_REFERENCE_LIMIT"
+  }
+]

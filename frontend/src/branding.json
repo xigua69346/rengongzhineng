@@ -1,0 +1,11 @@
+{
+  "name": "工业过程智能诊断平台",
+  "subtitle": "Industrial Process Intelligence & Diagnostics",
+  "header": "PROCESS INTELLIGENCE",
+  "pageTitle": "工业过程智能诊断平台",
+  "logo": "/brand.svg",
+  "favicon": "/brand.svg",
+  "introduction": "面向工业过程的运行观测、异常识别与故障机制诊断",
+  "footer": "工业过程智能诊断平台 · TEP历史仿真回放",
+  "footerNote": "研究数据可追溯 / 只读接口 / 无自动控制"
+}

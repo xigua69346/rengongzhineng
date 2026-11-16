@@ -1,0 +1,195 @@
+[
+  {
+    "rule": "METRIC_EVIDENCE",
+    "claim": {
+      "claim_id": "finding_0",
+      "claim_type": "FACT",
+      "facts": [
+        {
+          "fact_id": "0f3bdde0e5977ad236b11ab96de6b1f94b1dd428c119d8e186afe062eb3981cb",
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+          "pointer": "/data/arrays/T2/17",
+          "value": 57.86709703253733,
+          "semantic": "DETECTION_METRIC",
+          "dimensions": {
+            "metric": "T2",
+            "observation_time": 4860
+          },
+          "unit": "dimensionless",
+          "source_kind": "RECOMPUTED_FROZEN",
+          "evidence_status": "INFERRED",
+          "method": "detection"
+        }
+      ],
+      "optimization_allowed": false,
+      "validation_status": "VERIFIED",
+      "source_mode": "HISTORICAL_TEP_SIMULATION"
+    },
+    "text": "T2在4860秒的真实重算值为57.86709703253733。该统计量反映模型内偏离程度，不是故障概率。",
+    "text_origin": "BACKEND_VERIFIED_RENDERING",
+    "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+    "optimization_allowed": false
+  },
+  {
+    "rule": "ALARM_EVIDENCE",
+    "claim": {
+      "claim_id": "finding_1",
+      "claim_type": "FACT",
+      "facts": [
+        {
+          "fact_id": "e3759d7c99e7fa41547433c561a51a5ac62a2181dea27cb8f1c79e2a896ae29a",
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+          "pointer": "/data/arrays/pred_Threshold/18",
+          "value": true,
+          "semantic": "DETECTION_METRIC",
+          "dimensions": {
+            "metric": "pred_Threshold",
+            "observation_time": 5040
+          },
+          "unit": "dimensionless",
+          "source_kind": "RECOMPUTED_FROZEN",
+          "evidence_status": "INFERRED",
+          "method": "detection"
+        }
+      ],
+      "optimization_allowed": false,
+      "validation_status": "VERIFIED",
+      "source_mode": "HISTORICAL_TEP_SIMULATION"
+    },
+    "text": "pred_Threshold在5040秒的原报警结果为True；保持原控制限和报警规则。",
+    "text_origin": "BACKEND_VERIFIED_RENDERING",
+    "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+    "optimization_allowed": false
+  },
+  {
+    "rule": "DETECTOR_AGREEMENT",
+    "claim": {
+      "claim_id": "finding_2",
+      "claim_type": "FACT",
+      "facts": [
+        {
+          "fact_id": "0a6752a2ceed59365821619df179b73c686925e8b7aadd7bd2fc0f6b8f2360e3",
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+          "pointer": "/data/arrays/pred_PCA/17",
+          "value": true,
+          "semantic": "DETECTION_METRIC",
+          "dimensions": {
+            "metric": "pred_PCA",
+            "observation_time": 4860
+          },
+          "unit": "dimensionless",
+          "source_kind": "RECOMPUTED_FROZEN",
+          "evidence_status": "INFERRED",
+          "method": "detection"
+        },
+        {
+          "fact_id": "2f15445b5519fa2e11d2d58315c0c8ff83e652dd33b41d725b61d8c736f5fc24",
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+          "pointer": "/data/arrays/pred_Threshold/17",
+          "value": false,
+          "semantic": "DETECTION_METRIC",
+          "dimensions": {
+            "metric": "pred_Threshold",
+            "observation_time": 4860
+          },
+          "unit": "dimensionless",
+          "source_kind": "RECOMPUTED_FROZEN",
+          "evidence_status": "INFERRED",
+          "method": "detection"
+        }
+      ],
+      "optimization_allowed": false,
+      "validation_status": "VERIFIED",
+      "source_mode": "HISTORICAL_TEP_SIMULATION"
+    },
+    "text": "4860秒PCA与Threshold的报警判断存在分歧；这属于检测证据对照，不构成确定物理根因。",
+    "text_origin": "BACKEND_VERIFIED_RENDERING",
+    "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+    "optimization_allowed": false
+  },
+  {
+    "rule": "TEMPORAL_CHANGE",
+    "claim": {
+      "claim_id": "finding_3",
+      "claim_type": "FACT",
+      "facts": [
+        {
+          "fact_id": "3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca",
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+          "pointer": "/data/arrays/T2/0",
+          "value": 25.996666956458284,
+          "semantic": "DETECTION_METRIC",
+          "dimensions": {
+            "metric": "T2",
+            "observation_time": 1800
+          },
+          "unit": "dimensionless",
+          "source_kind": "RECOMPUTED_FROZEN",
+          "evidence_status": "INFERRED",
+          "method": "detection"
+        },
+        {
+          "fact_id": "f022e38f14f94238ce78c693dab4d86b38a06d3031bb26a2c1e200fe6e16641a",
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+          "pointer": "/data/arrays/T2/20",
+          "value": 35.40702446769979,
+          "semantic": "DETECTION_METRIC",
+          "dimensions": {
+            "metric": "T2",
+            "observation_time": 5400
+          },
+          "unit": "dimensionless",
+          "source_kind": "RECOMPUTED_FROZEN",
+          "evidence_status": "INFERRED",
+          "method": "detection"
+        }
+      ],
+      "optimization_allowed": false,
+      "validation_status": "VERIFIED",
+      "source_mode": "HISTORICAL_TEP_SIMULATION"
+    },
+    "text": "T2在1800秒为25.996666956458284，在5400秒为35.40702446769979。有限观测对照不能推断完整发展过程或因果关系。",
+    "text_origin": "BACKEND_VERIFIED_RENDERING",
+    "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+    "optimization_allowed": false
+  },
+  {
+    "rule": "INSUFFICIENT_ROOT_CAUSE",
+    "claim": {
+      "claim_id": "finding_4",
+      "claim_type": "INSUFFICIENT_EVIDENCE",
+      "facts": [
+        {
+          "fact_id": "3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca",
+          "evidence_id": "5015ff0bfde1407a03b44b0ac59bd391",
+          "payload_sha256": "d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca",
+          "pointer": "/data/arrays/T2/0",
+          "value": 25.996666956458284,
+          "semantic": "DETECTION_METRIC",
+          "dimensions": {
+            "metric": "T2",
+            "observation_time": 1800
+          },
+          "unit": "dimensionless",
+          "source_kind": "RECOMPUTED_FROZEN",
+          "evidence_status": "INFERRED",
+          "method": "detection"
+        }
+      ],
+      "optimization_allowed": false,
+      "validation_status": "INSUFFICIENT_EVIDENCE",
+      "source_mode": "HISTORICAL_TEP_SIMULATION",
+      "refusal_reason": "CLAIM_LIMITED_TO_REFERENCED_EVIDENCE"
+    },
+    "text": "现有统计检测证据不足以确定物理故障根因；没有验证因果路径或干预授权。历史仿真不能表述为现场实时观测。",
+    "text_origin": "BACKEND_VERIFIED_RENDERING",
+    "relation_level": "DIRECT_OBSERVATION_OF_MODEL_OUTPUT",
+    "optimization_allowed": false
+  }
+]

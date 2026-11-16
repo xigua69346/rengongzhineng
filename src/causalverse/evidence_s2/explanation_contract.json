@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "context_id",
+    "snapshot_sha256",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "d3-explanation-1"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "snapshot_sha256": {
+      "type": "string"
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule",
+          "evidence_refs"
+        ],
+        "properties": {
+          "rule": {
+            "enum": [
+              "METRIC_EVIDENCE",
+              "ALARM_EVIDENCE",
+              "DETECTOR_AGREEMENT",
+              "TEMPORAL_CHANGE",
+              "INSUFFICIENT_ROOT_CAUSE"
+            ]
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "evidence_id",
+                "fact_id",
+                "payload_sha256"
+              ],
+              "properties": {
+                "evidence_id": {
+                  "type": "string"
+                },
+                "fact_id": {
+                  "type": "string"
+                },
+                "payload_sha256": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
