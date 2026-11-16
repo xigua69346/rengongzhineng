@@ -1,0 +1,26 @@
+{
+  "changes": [
+    {
+      "path": "src/causalverse/evidence_s2/console/ai.js",
+      "before_sha256": "21cb74db24405bdbaf35bae75bc53e2574e76dbcfd6bec5f8703ec08b8c20638",
+      "after_sha256": "3a13d64d604ec19aa38e61fe1878caa668bf7ce30564a8f28522c1ef91c7267a"
+    },
+    {
+      "path": "src/causalverse/evidence_s2/console/app.js",
+      "before_sha256": "e5a73b4b8fd80949cc07670df2c0bdeff5207396a818d248cd72c3bfd6f31277",
+      "after_sha256": "04bd48b36f822a395acb94e80918092cfe52ebd7b6705770a6491c113fb05927"
+    },
+    {
+      "path": "src/causalverse/evidence_s2/console/index.html",
+      "before_sha256": "223d7cd962e0061e06c50f8e39da82c062a95313bf8bd771d96af3df9d2a6922",
+      "after_sha256": "a071cceba18109af81d7006b155e0f541c95beb8ae83f6acc1e8e9b690489cbc"
+    },
+    {
+      "path": "src/causalverse/evidence_s2/console/style.css",
+      "before_sha256": "0a1cd7355033ad02968e9163a6138b4de51fccf245615b0045ac65d9534c77e8",
+      "after_sha256": "68b85f91563a294be5bad090e8d1b66459f8d280a8ee4005da7b7f5bcdab94b7"
+    }
+  ],
+  "protected_files_unchanged": 12190,
+  "scope": "Four S2 display assets only; all backend validators unchanged"
+}

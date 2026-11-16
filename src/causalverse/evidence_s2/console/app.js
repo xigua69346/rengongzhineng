@@ -52,4 +52,4 @@ $('build').addEventListener('click',async()=>{
   catch(error){$('state').textContent='请求失败：'+error.message;}
   finally{$('build').disabled=false;}
 });
-(async()=>{try{csrf=(await api('/api/session')).csrf;catalog=await api('/api/catalog');choices();$('build').disabled=false;$('state').textContent='准备就绪 / 无 API Key';}catch(error){$('state').textContent='初始化失败：'+error.message;}})();
+(async()=>{try{csrf=(await api('/api/session')).csrf;catalog=await api('/api/catalog');choices();$('build').disabled=false;$('state').textContent='本地模型就绪';window.dispatchEvent(new CustomEvent('evidence-ready'));}catch(error){$('state').textContent='初始化失败：'+error.message;}})();
