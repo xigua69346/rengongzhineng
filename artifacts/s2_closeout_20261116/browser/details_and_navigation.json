@@ -1,0 +1,56 @@
+{
+  "finals": [
+    {
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "opened": {
+        "count": 5,
+        "open": true,
+        "preOverflow": false,
+        "scrollWidth": 1905,
+        "width": 1920
+      },
+      "closed": true,
+      "expandedScreenshot": "Error: Unable to capture screenshot",
+      "finalScreenshot": "Error: Unable to capture screenshot",
+      "navigation": "OK"
+    },
+    {
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "opened": {
+        "count": 5,
+        "open": true,
+        "preOverflow": false,
+        "scrollWidth": 1351,
+        "width": 1366
+      },
+      "closed": true,
+      "expandedScreenshot": "Error: Unable to capture screenshot",
+      "finalScreenshot": "Error: Unable to capture screenshot",
+      "navigation": "OK"
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "opened": {
+        "count": 5,
+        "open": true,
+        "preOverflow": false,
+        "scrollWidth": 375,
+        "width": 390
+      },
+      "closed": true,
+      "expandedScreenshot": "Error: Unable to capture screenshot",
+      "finalScreenshot": "Error: Unable to capture screenshot",
+      "navigation": "OK"
+    }
+  ],
+  "logs": []
+}

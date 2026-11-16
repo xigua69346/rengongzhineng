@@ -1,0 +1,18 @@
+[
+  {
+    "path": "src/causalverse/evidence_s2/console/index.html",
+    "sha256": "223d7cd962e0061e06c50f8e39da82c062a95313bf8bd771d96af3df9d2a6922"
+  },
+  {
+    "path": "src/causalverse/evidence_s2/console/app.js",
+    "sha256": "e5a73b4b8fd80949cc07670df2c0bdeff5207396a818d248cd72c3bfd6f31277"
+  },
+  {
+    "path": "src/causalverse/evidence_s2/console/ai.js",
+    "sha256": "21cb74db24405bdbaf35bae75bc53e2574e76dbcfd6bec5f8703ec08b8c20638"
+  },
+  {
+    "path": "src/causalverse/evidence_s2/console/style.css",
+    "sha256": "0a1cd7355033ad02968e9163a6138b4de51fccf245615b0045ac65d9534c77e8"
+  }
+]

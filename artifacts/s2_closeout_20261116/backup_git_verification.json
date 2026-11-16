@@ -1,0 +1,13 @@
+{
+  "commit": "9e828050399eff3506c5806638eca2e67d7c4765",
+  "tracked_files": 281,
+  "verified_source_files": 278,
+  "excluded_generated_metadata": [
+    "src/causalverse_simulation.egg-info/PKG-INFO",
+    "src/causalverse_simulation.egg-info/SOURCES.txt",
+    "src/causalverse_simulation.egg-info/dependency_links.txt",
+    "src/causalverse_simulation.egg-info/requires.txt",
+    "src/causalverse_simulation.egg-info/top_level.txt"
+  ],
+  "exact_committed_bytes": true
+}

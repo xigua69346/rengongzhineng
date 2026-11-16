@@ -1,0 +1,68 @@
+{
+  "interactions": [
+    {
+      "size": {
+        "width": 1920,
+        "height": 1080
+      },
+      "beforeScroll": 0,
+      "open": {
+        "aiCardCount": 5,
+        "jsonScrollTop": 0.800000011920929,
+        "open": true,
+        "preOverflow": false,
+        "scrollWidth": 1905,
+        "width": 1920
+      },
+      "closed": true,
+      "screenshot": "OK",
+      "nav": {
+        "aiTop": 15.600000381469728,
+        "hash": "#ai-analysis"
+      }
+    },
+    {
+      "size": {
+        "width": 1366,
+        "height": 768
+      },
+      "beforeScroll": 296.79998779296875,
+      "open": {
+        "aiCardCount": 5,
+        "jsonScrollTop": 296.79998779296875,
+        "open": true,
+        "preOverflow": false,
+        "scrollWidth": 1351,
+        "width": 1366
+      },
+      "closed": true,
+      "screenshot": "OK",
+      "nav": {
+        "aiTop": 15.925000190734863,
+        "hash": "#ai-analysis"
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "beforeScroll": 342.3999938964844,
+      "open": {
+        "aiCardCount": 5,
+        "jsonScrollTop": 342.3999938964844,
+        "open": true,
+        "preOverflow": false,
+        "scrollWidth": 375,
+        "width": 390
+      },
+      "closed": true,
+      "screenshot": "OK",
+      "nav": {
+        "aiTop": 16,
+        "hash": "#ai-analysis"
+      }
+    }
+  ],
+  "logs": []
+}

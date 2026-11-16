@@ -1,0 +1,17 @@
+[
+  {
+    "source_id": "c2a0ac1ae0fdadfba8a9d5c5a729a936",
+    "source_sha256": "5d3b7c6c1a529bc5e77aed1426af6ccfd84639d92ef7864b8176813ea09b6090",
+    "status": "VALIDATED"
+  },
+  {
+    "source_id": "9115b6fe6d5804e14ed0101aaf4afc25",
+    "source_sha256": "23d0f27c7904107c4171785c7507ae74dca8260fec2c4d76b414318d5fc30776",
+    "status": "REJECTED"
+  },
+  {
+    "source_id": "missing-key-original",
+    "source_sha256": "4d164ddb1fc25d19a01a8041fd602d31258ef02e141b55c1113bf82ccdefaabc",
+    "status": "NOT_CONFIGURED"
+  }
+]

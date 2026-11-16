@@ -1,0 +1,205 @@
+- banner:
+  - link "CV":
+    - /url: /
+  - generic: S2 · 工业智能证据台
+- main:
+  - paragraph: INDUSTRIAL PROCESS INTELLIGENCE
+  - heading "计算有据， 结论有边界。" [level=1]:
+    - text: 计算有据，
+    - emphasis: 结论有边界。
+  - paragraph:
+    - text: 冻结模型独立推理 · 历史 TEP 仿真数据
+    - text: DeepSeek已接入 · API未配置 · deepseek-flash · 尚未确认本次调用成功
+    - text: DeepSeek负责证据选择与结构化分析；数值及中文释义由后端验证回填。
+  - navigation "证据台导航":
+    - link "模型证据":
+      - /url: "#evidence-workspace"
+    - link "DeepSeek分析 ↓":
+      - /url: "#ai-analysis"
+  - complementary:
+    - heading "01 / 选择证据范围" [level=2]
+    - text: 数据链
+    - combobox "数据链":
+      - option "D3" [selected]
+      - option "D511"
+    - text: 匿名案例
+    - combobox "匿名案例":
+      - option "案例-0fe654ff" [selected]
+      - option "案例-34981457"
+      - option "案例-ffdc1ef3"
+      - option "案例-0f092ff8"
+      - option "案例-94c2d2d3"
+      - option "案例-ec4f688c"
+      - option "案例-515c59fb"
+      - option "案例-0bd29922"
+      - option "案例-1de39a99"
+      - option "案例-4c1e80d4"
+      - option "案例-a12ba02d"
+      - option "案例-42373330"
+      - option "案例-c8573e30"
+      - option "案例-e3fba5bb"
+      - option "案例-23013f88"
+      - option "案例-af503a14"
+      - option "案例-0088e111"
+      - option "案例-466f7dd7"
+      - option "案例-30004889"
+      - option "案例-bd8da7b2"
+      - option "案例-34dec3f0"
+      - option "案例-b668c04e"
+      - option "案例-e0bfdd25"
+      - option "案例-5277c5c8"
+      - option "案例-3e039de4"
+      - option "案例-aa7cb5db"
+      - option "案例-642889dd"
+      - option "案例-2b72882b"
+      - option "案例-327d497d"
+      - option "案例-74594d15"
+      - option "案例-2ce8984c"
+      - option "案例-544113b0"
+      - option "案例-3e07e5c6"
+      - option "案例-80f95b09"
+      - option "案例-860991a0"
+      - option "案例-3c47bba5"
+      - option "案例-16d3426b"
+      - option "案例-ac87550f"
+      - option "案例-461c9814"
+      - option "案例-b2c96567"
+      - option "案例-fe5eb796"
+      - option "案例-d50ebd4e"
+      - option "案例-caddd994"
+      - option "案例-e74a155e"
+      - option "案例-56cf83b9"
+      - option "案例-a6c5c813"
+      - option "案例-1f50ef06"
+      - option "案例-38cde1bc"
+      - option "案例-d74c85b8"
+      - option "案例-3bd8739a"
+      - option "案例-4e153870"
+      - option "案例-a54ad45b"
+      - option "案例-befc8779"
+      - option "案例-e99ab26a"
+      - option "案例-0731928f"
+      - option "案例-216b628e"
+      - option "案例-80a6fc3b"
+      - option "案例-e9c3cd8b"
+      - option "案例-4f3482a2"
+      - option "案例-a9d727b1"
+      - option "案例-0716aeb6"
+      - option "案例-77b3cadd"
+      - option "案例-8bb74141"
+      - option "案例-586d045c"
+      - option "案例-70525a20"
+      - option "案例-318b1ba4"
+      - option "案例-c725d8b9"
+      - option "案例-11a3fc4f"
+      - option "案例-266c06bf"
+      - option "案例-90a30e97"
+      - option "案例-9db0de8f"
+      - option "案例-357e09d9"
+      - option "案例-8d6c43f3"
+      - option "案例-defa85a9"
+      - option "案例-4e0e610b"
+      - option "案例-03c46711"
+      - option "案例-b6aff085"
+      - option "案例-5d263cfa"
+      - option "案例-55d83628"
+      - option "案例-726fde5f"
+    - text: 可见时间 as_of / 秒
+    - spinbutton "可见时间 as_of / 秒": "5400"
+    - text: 识别窗口 / 秒
+    - combobox "识别窗口 / 秒":
+      - option "180"
+      - option "600"
+      - option "1800" [selected]
+    - button "重新计算并封存证据 ↗"
+    - paragraph:
+      - text: D3：41变量检测与四变量识别。
+      - text: D511：外部识别与七变量条件预测。
+      - text: 两条数据链独立，禁止自动配对。
+    - text: 优化授权始终关闭
+    - text: optimization_allowed = false
+  - heading "02 / 不可变证据快照" [level=2]
+  - generic: 本地模型就绪
+  - paragraph: 请选择匿名案例并计算。界面不会展示真实运行编号或原始文件路径。
+  - text: ∴
+  - heading "从真实计算开始" [level=3]
+  - paragraph:
+    - text: 每个结果关联独立证据编号、参数哈希和时间范围。
+    - text: 观测不足会保留 WAITING 或 UNAVAILABLE。
+  - paragraph: DEEPSEEK / EVIDENCE INTELLIGENCE
+  - heading "03 / AI结构化异常解释" [level=2]
+  - status: VALIDATED · 历史记录回放
+  - paragraph: DeepSeek已接入 · API未配置 · deepseek-flash · 尚未确认本次调用成功
+  - text: 分析来源
+  - combobox "分析来源":
+    - option "已保存真实结果（历史回放，不产生费用）" [selected]
+    - option "当前会话（需明确发起API请求）"
+  - text: 历史API记录
+  - combobox "历史API记录":
+    - option "历史成功 · VALIDATED · 5项分析" [selected]
+    - option "历史拒绝 · REJECTED · 引用超限"
+    - option "历史未配置 · NOT_CONFIGURED · 未调用API"
+  - button "请求当前案例分析（会产生费用）" [disabled]
+  - paragraph: DeepSeek选择证据与分析结构，数值及中文释义由后端验证回填。统计证据不等于确定根因，不提供控制或优化授权。
+  - paragraph: 未发起新API调用；历史成功不代表当前实时调用成功。
+  - generic: 模型 deepseek-flash
+  - generic: 请求时间 2026/11/16 16:51:43
+  - generic: 原请求耗时 3695.6 ms
+  - article:
+    - heading "异常指标分析" [level=3]
+    - generic: VERIFIED
+    - paragraph: T2在4860秒的真实重算值为57.86709703253733。该统计量反映模型内偏离程度，不是故障概率。
+    - term: 引用观测时刻
+    - definition: 4860 秒
+    - term: T²统计量
+    - definition: "57.86709703253733"
+    - paragraph: 1项来源证据 · 1条事实引用
+    - generic "查看完整证据"
+  - article:
+    - heading "报警证据分析" [level=3]
+    - generic: VERIFIED
+    - paragraph: pred_Threshold在5040秒的原报警结果为True；保持原控制限和报警规则。
+    - term: 引用观测时刻
+    - definition: 5040 秒
+    - term: Threshold报警
+    - definition: True（报警）
+    - paragraph: 1项来源证据 · 1条事实引用
+    - generic "查看完整证据"
+  - article:
+    - heading "检测器分歧分析" [level=3]
+    - generic: VERIFIED
+    - paragraph: 4860秒PCA与Threshold的报警判断存在分歧；这属于检测证据对照，不构成确定物理根因。
+    - term: 引用观测时刻
+    - definition: 4860 秒
+    - term: PCA报警
+    - definition: True（报警）
+    - term: Threshold报警
+    - definition: False（未报警）
+    - paragraph: 1项来源证据 · 2条事实引用
+    - generic "查看完整证据"
+  - article:
+    - heading "时间变化分析" [level=3]
+    - generic: VERIFIED
+    - paragraph: T2在1800秒为25.996666956458284，在5400秒为35.40702446769979。有限观测对照不能推断完整发展过程或因果关系。
+    - term: 引用观测时刻
+    - definition: 1800 秒 → 5400 秒
+    - term: T²统计量
+    - definition: "25.996666956458284"
+    - term: T²统计量
+    - definition: "35.40702446769979"
+    - paragraph: 1项来源证据 · 2条事实引用
+    - generic "查看完整证据"
+  - article:
+    - heading "根因证据不足说明" [level=3]
+    - generic: 证据不足
+    - paragraph: 现有统计检测证据不足以确定物理故障根因；没有验证因果路径或干预授权。历史仿真不能表述为现场实时观测。
+    - term: 引用观测时刻
+    - definition: 1800 秒
+    - term: T²统计量
+    - definition: "25.996666956458284"
+    - paragraph: 1项来源证据 · 1条事实引用
+    - generic "查看完整证据"
+  - paragraph: 评分不是故障概率；候选不是确定根因；AI解释不提供控制指令或优化建议。optimization_allowed = false。
+  - generic "查看调用审计与完整技术信息"
+  - text: READ ONLY · NO CONTROL INTERFACE
+  - generic: 模型评分不是故障概率 / 候选不是确定物理根因

@@ -1,0 +1,10 @@
+{
+  "error": "Unable to capture screenshot",
+  "state": {
+    "aiCardCount": 5,
+    "firstOpen": true,
+    "height": 1080,
+    "scrollWidth": 1920,
+    "width": 1920
+  }
+}

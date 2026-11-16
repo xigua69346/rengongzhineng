@@ -1,0 +1,146 @@
+[
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "state": "VALIDATED",
+    "actual": "VALIDATED · 历史记录回放",
+    "cards": 10,
+    "geometry": {
+      "height": 1080,
+      "preOverflow": false,
+      "scrollWidth": 1905,
+      "width": 1920
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "state": "REJECTED",
+    "actual": "REJECTED · 历史记录回放",
+    "cards": 5,
+    "geometry": {
+      "height": 1080,
+      "preOverflow": false,
+      "scrollWidth": 1905,
+      "width": 1920
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "state": "NOT_CONFIGURED",
+    "actual": "NOT_CONFIGURED · 历史记录回放",
+    "cards": 5,
+    "geometry": {
+      "height": 1080,
+      "preOverflow": false,
+      "scrollWidth": 1905,
+      "width": 1920
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 1366,
+      "height": 768
+    },
+    "state": "VALIDATED",
+    "actual": "VALIDATED · 历史记录回放",
+    "cards": 10,
+    "geometry": {
+      "height": 768,
+      "preOverflow": false,
+      "scrollWidth": 1351,
+      "width": 1366
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 1366,
+      "height": 768
+    },
+    "state": "REJECTED",
+    "actual": "REJECTED · 历史记录回放",
+    "cards": 5,
+    "geometry": {
+      "height": 768,
+      "preOverflow": false,
+      "scrollWidth": 1351,
+      "width": 1366
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 1366,
+      "height": 768
+    },
+    "state": "NOT_CONFIGURED",
+    "actual": "NOT_CONFIGURED · 历史记录回放",
+    "cards": 5,
+    "geometry": {
+      "height": 768,
+      "preOverflow": false,
+      "scrollWidth": 1351,
+      "width": 1366
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "state": "VALIDATED",
+    "actual": "VALIDATED · 历史记录回放",
+    "cards": 10,
+    "geometry": {
+      "height": 844,
+      "preOverflow": false,
+      "scrollWidth": 375,
+      "width": 390
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "state": "REJECTED",
+    "actual": "REJECTED · 历史记录回放",
+    "cards": 5,
+    "geometry": {
+      "height": 844,
+      "preOverflow": false,
+      "scrollWidth": 375,
+      "width": 390
+    },
+    "screenshot": "OK"
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844
+    },
+    "state": "NOT_CONFIGURED",
+    "actual": "NOT_CONFIGURED · 历史记录回放",
+    "cards": 5,
+    "geometry": {
+      "height": 844,
+      "preOverflow": false,
+      "scrollWidth": 375,
+      "width": 390
+    },
+    "screenshot": "OK"
+  }
+]

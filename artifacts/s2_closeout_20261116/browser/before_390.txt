@@ -1,0 +1,169 @@
+- banner:
+  - link "CV":
+    - /url: /
+  - generic: S1 · 本地证据基础设施
+- main:
+  - paragraph: INDUSTRIAL PROCESS INTELLIGENCE
+  - heading "计算有据， 结论有边界。" [level=1]:
+    - text: 计算有据，
+    - emphasis: 结论有边界。
+  - paragraph:
+    - text: 冻结模型独立推理 · 历史 TEP 仿真数据
+    - text: DeepSeek 尚未接入。预测完成不授予动作推荐或执行权限。
+  - complementary:
+    - heading "01 / 选择证据范围" [level=2]
+    - text: 数据链
+    - combobox "数据链":
+      - option "D3" [selected]
+      - option "D511"
+    - text: 匿名案例
+    - combobox "匿名案例":
+      - option "案例-3e11e606"
+      - option "案例-e54e421e"
+      - option "案例-1b089bdf"
+      - option "案例-8ff7ca19"
+      - option "案例-82661709"
+      - option "案例-f258c2b5"
+      - option "案例-dba86377"
+      - option "案例-9139971b"
+      - option "案例-a6f3f7c4"
+      - option "案例-ce664a81"
+      - option "案例-20461949"
+      - option "案例-5cfec5d6"
+      - option "案例-edd84e4d"
+      - option "案例-87355af9"
+      - option "案例-9858bce3"
+      - option "案例-2c4b1302"
+      - option "案例-7b9f3bbb"
+      - option "案例-a17cbccc"
+      - option "案例-f08e559f"
+      - option "案例-2ef1ceb7"
+      - option "案例-5e6f4a3b"
+      - option "案例-79d9e82a"
+      - option "案例-9575b0db"
+      - option "案例-04454b21"
+      - option "案例-39d8038d"
+      - option "案例-c265ee68"
+      - option "案例-4800e7eb"
+      - option "案例-4025905c"
+      - option "案例-4b243278"
+      - option "案例-91b05e8d"
+      - option "案例-27cbfcba"
+      - option "案例-c04ef702"
+      - option "案例-af812315"
+      - option "案例-f1624cb6"
+      - option "案例-d6f674bf"
+      - option "案例-d41ab4a9"
+      - option "案例-0fb5c4ad"
+      - option "案例-e4bbe155"
+      - option "案例-4c5eb081"
+      - option "案例-4e730622"
+      - option "案例-ee66919a"
+      - option "案例-b07c382e"
+      - option "案例-d2fd9ad7"
+      - option "案例-f6606dd5"
+      - option "案例-a6a587a1"
+      - option "案例-fd857a6d"
+      - option "案例-cf9ae0f8"
+      - option "案例-9b0b02d8"
+      - option "案例-b1f53711"
+      - option "案例-dce683c4"
+      - option "案例-c9602db3" [selected]
+      - option "案例-679679a0"
+      - option "案例-0db730c4"
+      - option "案例-e6cadfe1"
+      - option "案例-6320b509"
+      - option "案例-4f360d66"
+      - option "案例-7737ed01"
+      - option "案例-87886b44"
+      - option "案例-0291be3b"
+      - option "案例-d8b78045"
+      - option "案例-c4834f4a"
+      - option "案例-9ffa93c4"
+      - option "案例-8b52efec"
+      - option "案例-2f7511b9"
+      - option "案例-46d4499c"
+      - option "案例-43cf2936"
+      - option "案例-ba2c661d"
+      - option "案例-22f9e465"
+      - option "案例-aed38566"
+      - option "案例-8b8893c1"
+      - option "案例-eba1de94"
+      - option "案例-5dfc16ed"
+      - option "案例-7af5bbbb"
+      - option "案例-36cfa40b"
+      - option "案例-400c9aa5"
+      - option "案例-b65f3639"
+      - option "案例-a5858a33"
+      - option "案例-04586e70"
+      - option "案例-203c358a"
+      - option "案例-585d7772"
+    - text: 可见时间 as_of / 秒
+    - spinbutton "可见时间 as_of / 秒": "5400"
+    - text: 识别窗口 / 秒
+    - combobox "识别窗口 / 秒":
+      - option "180"
+      - option "600"
+      - option "1800" [selected]
+    - button "重新计算并封存证据 ↗"
+    - paragraph:
+      - text: D3：41变量检测与四变量识别。
+      - text: D511：外部识别与七变量条件预测。
+      - text: 两条数据链独立，禁止自动配对。
+    - text: 优化授权始终关闭
+    - text: optimization_allowed = false
+  - heading "02 / 不可变证据快照" [level=2]
+  - generic: 已封存 / SHA256 校验
+  - paragraph: 案例-c9602db3 · D3 · as_of=5400s · context_id=d90db5c70ba32cea3cfdccce3ffc3abf · 历史仿真
+  - article:
+    - heading "异常检测 / PCA + Threshold" [level=3]
+    - generic: INFERRED
+    - paragraph: evidence_id 5015ff0bfde1407a03b44b0ac59bd391 SHA256 d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca
+    - paragraph: 实际重算 21 个可用检测时刻；贡献度及报警逐项保留。
+    - generic "查看完整数值、模型参数哈希与审计"
+  - article:
+    - heading "机制识别 / Static" [level=3]
+    - generic: INFERRED
+    - paragraph: evidence_id 64b85e355d320de312480d8d36a25d30 SHA256 e556d783115737fe02e5b1eb15ee89c21bf8c229c4db0599904e15fc34673560
+    - paragraph: 候选 11；模型内单一候选。评分不是概率。
+    - generic "查看完整数值、模型参数哈希与审计"
+  - article:
+    - heading "机制识别 / VAR" [level=3]
+    - generic: INFERRED
+    - paragraph: evidence_id 5f9735096716542f1fbe3a89a85abd13 SHA256 332483d5ada2c460fd0232071eadf84f7a9533256b8a9e122cddb6a2108f3530
+    - paragraph: 候选 11；模型内单一候选。评分不是概率。
+    - generic "查看完整数值、模型参数哈希与审计"
+  - article:
+    - heading "机制识别 / Logistic" [level=3]
+    - generic: INFERRED
+    - paragraph: evidence_id 652d8138fa21418257e9b5a591130c5b SHA256 d18a667f06769877a5574979f96af5224acd2c6052ec168d1523025f1872288f
+    - paragraph: 候选 11；模型内单一候选。评分不是概率。
+    - generic "查看完整数值、模型参数哈希与审计"
+  - article:
+    - heading "条件预测" [level=3]
+    - generic: UNAVAILABLE
+    - paragraph: evidence_id 07f14c765fb0f2f72046e86d4c663529 SHA256 139a8b2671e289d80141e3eb9ad4154ce1f9ebd9c07c2e220a3b8b18e7cb6f2e
+    - paragraph: 当前数据链未注册此功能。原始原因码：NO_REGISTERED_D3_TO_D511_PAIRING
+    - generic "查看完整数值、模型参数哈希与审计"
+  - heading "03 / DeepSeek AI 异常解释" [level=2]
+  - paragraph: deepseek-flash / VALIDATED / 3695.6ms / 请求 c2a0ac1ae0fdadfba8a9d5c5a729a936 / 已发起上游请求
+  - button "调用真实DeepSeek分析"
+  - paragraph: DeepSeek负责证据选择与结构化分析；以下中文释义和数值由后端校验回填。不是未经验证的AI自由文本。
+  - article:
+    - paragraph: T2在4860秒的真实重算值为57.86709703253733。该统计量反映模型内偏离程度，不是故障概率。
+    - generic: "{ \"claim_id\": \"finding_0\", \"claim_type\": \"FACT\", \"facts\": [ { \"fact_id\": \"0f3bdde0e5977ad236b11ab96de6b1f94b1dd428c119d8e186afe062eb3981cb\", \"evidence_id\": \"5015ff0bfde1407a03b44b0ac59bd391\", \"payload_sha256\": \"d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca\", \"pointer\": \"/data/arrays/T2/17\", \"value\": 57.86709703253733, \"semantic\": \"DETECTION_METRIC\", \"dimensions\": { \"metric\": \"T2\", \"observation_time\": 4860 }, \"unit\": \"dimensionless\", \"source_kind\": \"RECOMPUTED_FROZEN\", \"evidence_status\": \"INFERRED\", \"method\": \"detection\" } ], \"optimization_allowed\": false, \"validation_status\": \"VERIFIED\", \"source_mode\": \"HISTORICAL_TEP_SIMULATION\" }"
+  - article:
+    - paragraph: pred_Threshold在5040秒的原报警结果为True；保持原控制限和报警规则。
+    - generic: "{ \"claim_id\": \"finding_1\", \"claim_type\": \"FACT\", \"facts\": [ { \"fact_id\": \"e3759d7c99e7fa41547433c561a51a5ac62a2181dea27cb8f1c79e2a896ae29a\", \"evidence_id\": \"5015ff0bfde1407a03b44b0ac59bd391\", \"payload_sha256\": \"d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca\", \"pointer\": \"/data/arrays/pred_Threshold/18\", \"value\": true, \"semantic\": \"DETECTION_METRIC\", \"dimensions\": { \"metric\": \"pred_Threshold\", \"observation_time\": 5040 }, \"unit\": \"dimensionless\", \"source_kind\": \"RECOMPUTED_FROZEN\", \"evidence_status\": \"INFERRED\", \"method\": \"detection\" } ], \"optimization_allowed\": false, \"validation_status\": \"VERIFIED\", \"source_mode\": \"HISTORICAL_TEP_SIMULATION\" }"
+  - article:
+    - paragraph: 4860秒PCA与Threshold的报警判断存在分歧；这属于检测证据对照，不构成确定物理根因。
+    - generic: "{ \"claim_id\": \"finding_2\", \"claim_type\": \"FACT\", \"facts\": [ { \"fact_id\": \"0a6752a2ceed59365821619df179b73c686925e8b7aadd7bd2fc0f6b8f2360e3\", \"evidence_id\": \"5015ff0bfde1407a03b44b0ac59bd391\", \"payload_sha256\": \"d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca\", \"pointer\": \"/data/arrays/pred_PCA/17\", \"value\": true, \"semantic\": \"DETECTION_METRIC\", \"dimensions\": { \"metric\": \"pred_PCA\", \"observation_time\": 4860 }, \"unit\": \"dimensionless\", \"source_kind\": \"RECOMPUTED_FROZEN\", \"evidence_status\": \"INFERRED\", \"method\": \"detection\" }, { \"fact_id\": \"2f15445b5519fa2e11d2d58315c0c8ff83e652dd33b41d725b61d8c736f5fc24\", \"evidence_id\": \"5015ff0bfde1407a03b44b0ac59bd391\", \"payload_sha256\": \"d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca\", \"pointer\": \"/data/arrays/pred_Threshold/17\", \"value\": false, \"semantic\": \"DETECTION_METRIC\", \"dimensions\": { \"metric\": \"pred_Threshold\", \"observation_time\": 4860 }, \"unit\": \"dimensionless\", \"source_kind\": \"RECOMPUTED_FROZEN\", \"evidence_status\": \"INFERRED\", \"method\": \"detection\" } ], \"optimization_allowed\": false, \"validation_status\": \"VERIFIED\", \"source_mode\": \"HISTORICAL_TEP_SIMULATION\" }"
+  - article:
+    - paragraph: T2在1800秒为25.996666956458284，在5400秒为35.40702446769979。有限观测对照不能推断完整发展过程或因果关系。
+    - generic: "{ \"claim_id\": \"finding_3\", \"claim_type\": \"FACT\", \"facts\": [ { \"fact_id\": \"3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca\", \"evidence_id\": \"5015ff0bfde1407a03b44b0ac59bd391\", \"payload_sha256\": \"d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca\", \"pointer\": \"/data/arrays/T2/0\", \"value\": 25.996666956458284, \"semantic\": \"DETECTION_METRIC\", \"dimensions\": { \"metric\": \"T2\", \"observation_time\": 1800 }, \"unit\": \"dimensionless\", \"source_kind\": \"RECOMPUTED_FROZEN\", \"evidence_status\": \"INFERRED\", \"method\": \"detection\" }, { \"fact_id\": \"f022e38f14f94238ce78c693dab4d86b38a06d3031bb26a2c1e200fe6e16641a\", \"evidence_id\": \"5015ff0bfde1407a03b44b0ac59bd391\", \"payload_sha256\": \"d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca\", \"pointer\": \"/data/arrays/T2/20\", \"value\": 35.40702446769979, \"semantic\": \"DETECTION_METRIC\", \"dimensions\": { \"metric\": \"T2\", \"observation_time\": 5400 }, \"unit\": \"dimensionless\", \"source_kind\": \"RECOMPUTED_FROZEN\", \"evidence_status\": \"INFERRED\", \"method\": \"detection\" } ], \"optimization_allowed\": false, \"validation_status\": \"VERIFIED\", \"source_mode\": \"HISTORICAL_TEP_SIMULATION\" }"
+  - article:
+    - paragraph: 现有统计检测证据不足以确定物理故障根因；没有验证因果路径或干预授权。历史仿真不能表述为现场实时观测。
+    - generic: "{ \"claim_id\": \"finding_4\", \"claim_type\": \"INSUFFICIENT_EVIDENCE\", \"facts\": [ { \"fact_id\": \"3cf65fda7c3f146b79571bf5a181efc8fd1362306dc552d0baf74a6e76a4a8ca\", \"evidence_id\": \"5015ff0bfde1407a03b44b0ac59bd391\", \"payload_sha256\": \"d777c3b3a67b58383f61bb211d05e7393d7b579b3da3e6cc0d1bc8bf266040ca\", \"pointer\": \"/data/arrays/T2/0\", \"value\": 25.996666956458284, \"semantic\": \"DETECTION_METRIC\", \"dimensions\": { \"metric\": \"T2\", \"observation_time\": 1800 }, \"unit\": \"dimensionless\", \"source_kind\": \"RECOMPUTED_FROZEN\", \"evidence_status\": \"INFERRED\", \"method\": \"detection\" } ], \"optimization_allowed\": false, \"validation_status\": \"INSUFFICIENT_EVIDENCE\", \"source_mode\": \"HISTORICAL_TEP_SIMULATION\", \"refusal_reason\": \"CLAIM_LIMITED_TO_REFERENCED_EVIDENCE\" }"
+  - generic: "{ \"usage\": { \"prompt_tokens\": 5097, \"completion_tokens\": 944, \"total_tokens\": 6041, \"prompt_cache_hit_tokens\": 0, \"prompt_cache_miss_tokens\": 5097 }, \"cost_status\": \"USAGE_RECORDED_INVOICE_NOT_VERIFIED\", \"optimization_allowed\": false, \"context_id\": \"d90db5c70ba32cea3cfdccce3ffc3abf\" }"
+  - text: READ ONLY · NO CONTROL INTERFACE
+  - generic: 模型评分不是故障概率 / 候选不是确定物理根因

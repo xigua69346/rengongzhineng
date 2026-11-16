@@ -1,0 +1,45 @@
+{
+  "ledgers": [
+    {
+      "label": "original",
+      "path": "artifacts/ai_s1_acceptance/s1_20261116_102936_452b6431/protection_final.json",
+      "sha256": "d55a4089a89e0472ed9b87e7e13248e07488bb1ff80982b8bda75847cfbf6923",
+      "count": 8992
+    },
+    {
+      "label": "s1",
+      "path": "artifacts/ai_s1_acceptance/s1_20261116_102936_452b6431/new_files_inventory.json",
+      "sha256": "08f8c1b002173b0000aa193bfd22f9df4fc45ee6142e0506f99f05508db728f4",
+      "count": 572
+    },
+    {
+      "label": "s11",
+      "path": "artifacts/ai_s1_1/s1_1_20261116/new_files_inventory.json",
+      "sha256": "7f11bae85ed67323499b54925236f44f6646a1a324299d5e6aabfb0859ab560c",
+      "count": 717
+    },
+    {
+      "label": "supplement",
+      "path": "artifacts/ai_s1_supplement/s1_final_20261116_133423/supplement_inventory.json",
+      "sha256": "80746d956c1ab477d035c1321e0cdfa470bea601684f4d829dffffa52e47c46d",
+      "count": 53
+    },
+    {
+      "label": "s2prep",
+      "path": "artifacts/ai_s2/s2_20261116_155131/new_files_inventory.json",
+      "sha256": "00a89fee357e2cacbacbb16cc9231844c618d9a1b70ce95c03f8b4fdb97e85b4",
+      "count": 1013
+    },
+    {
+      "label": "s2real",
+      "path": "artifacts/ai_s2/real_20261116_162851/new_files_inventory.json",
+      "sha256": "bf96c7c60edea32cc19351e4e3e3e97df01a93cbfbc9d1bfa3b446572f753a7b",
+      "count": 854
+    }
+  ],
+  "expected_count": 12194,
+  "changed_hashes": [],
+  "missing_files": [],
+  "verification_errors": [],
+  "unknown_files": []
+}

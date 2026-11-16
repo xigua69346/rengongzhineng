@@ -1,0 +1,17 @@
+✔ archives contain genuine success rejection and missing-key records (2.2571ms)
+✔ five analysis types have readable titles (0.1721ms)
+✔ display preserves exact verified values and clock (0.1142ms)
+✔ fact count and unique evidence count are distinct (0.0839ms)
+✔ root-cause limitation remains insufficient evidence (0.0788ms)
+✔ historical VALIDATED is never marked as current success (0.633ms)
+✔ existing backend result is labelled cached rather than new call (0.1056ms)
+✔ archived rejected and unavailable results never render accepted cards (0.0999ms)
+✔ live invocation requires explicit mode fresh D3 context and configuration (0.1104ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.3686

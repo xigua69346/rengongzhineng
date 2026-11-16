@@ -1,0 +1,14 @@
+{
+  "before_count": 5,
+  "after_count": 5,
+  "new_calls": [],
+  "changed_records": [],
+  "records": {
+    "artifacts/ai_s2_runs/077b17de4b22171a3a3bae9a5916e9bd/ai/9115b6fe6d5804e14ed0101aaf4afc25_audit.json": "23d0f27c7904107c4171785c7507ae74dca8260fec2c4d76b414318d5fc30776",
+    "artifacts/ai_s2_runs/5619d6906fc68302c4080c1486324389/ai/530cfe1c92f555388be12b4d2442987e_audit.json": "f2f1d101a9994d928e5493cb54cef7ae93d614096cb80f7645c556de6a054a08",
+    "artifacts/ai_s2_runs/5619d6906fc68302c4080c1486324389/ai/60b136528f1d83f8193574eddeab4be8_audit.json": "ea94f8e03314a56e4684411eb1a8b8f7e305cba46bc55bd6f986fc50e0cb113b",
+    "artifacts/ai_s2_runs/5619d6906fc68302c4080c1486324389/ai/68fca11e2a2848937f9cfabbaca8d5cb_audit.json": "f0c633ffde56e9a9dbf3eef70efd00f652c1b25a38da2626e8bfec11fd017002",
+    "artifacts/ai_s2_runs/84ab6af148e1eb0a16eb7f5345248b60/ai/c2a0ac1ae0fdadfba8a9d5c5a729a936_audit.json": "5d3b7c6c1a529bc5e77aed1426af6ccfd84639d92ef7864b8176813ea09b6090"
+  },
+  "note": "The earlier report covered four acceptance calls; an additional preexisting sealed call is outside that sample. No historical report or record was rewritten."
+}
