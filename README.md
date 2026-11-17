@@ -1,4 +1,4 @@
-# CausalVerse
+# 工业过程智能诊断平台
 
 - [D5.1 模型不确定性与可信度](docs/research/D5_MODEL_UNCERTAINTY.md)：已完成首个子阶段；干预优化尚未获模型可信度授权，未完成整个D5。
 

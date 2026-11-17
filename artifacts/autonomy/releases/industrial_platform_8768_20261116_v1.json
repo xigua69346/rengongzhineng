@@ -1,0 +1,34 @@
+{
+  "frontend/src/App.svelte": {
+    "before_sha256": "7f7de1ea0268956d92f257a669062f6b9b7ad2ab220b2ee5bbdf297ad4bebca0",
+    "after_sha256": "98749df18710e524f0260fd1b57b9d934bcc34bc04a1964e5e394ffd83e46461"
+  },
+  "frontend/src/ProcessHMI.svelte": {
+    "before_sha256": "3ee2c2b312ecba6f084566681578419b6f8370079d467609826e0bdc04997824",
+    "after_sha256": "a7ac7d916d08e41cac4eef5b8935d502eec0aa54427978fe94122f22f0fafb97"
+  },
+  "frontend/src/branding.json": {
+    "before_sha256": "bf7f0932ac53714ade52c440c8201834b3332d6c739eb184064e6440abbecf45",
+    "after_sha256": "f88861c054d4405aecba203d1cf08caa9a84fb3c71d729ea1efea3b75979f9e7"
+  },
+  "src/causalverse/autonomy/console/index.html": {
+    "before_sha256": "8f5f2873f5c8897146c04e5d220aba60b9c2d7ad5725cbbfcd87d8f277d0de69",
+    "after_sha256": "d5999d9dce06909ff120f73cd569ea2773fce78efe6854c0a16084ceb0b4e59a"
+  },
+  "src/causalverse/dashboard/server.py": {
+    "before_sha256": "5cc3d139add401a33197bb8217020acd6d991ea1aeb7ad2b563d40ad47b1507d",
+    "after_sha256": "d8f3aefa95bae89a71556914f7def4462af1b78a88246d61d101fb5b474081bb"
+  },
+  "src/causalverse/evidence_s1/console/index.html": {
+    "before_sha256": "d36056b23dfa5271db8a0788cfa70431e7b0feb739b82c6db44752c9ce81e1db",
+    "after_sha256": "4675553cf1ac39e8d6069052d14c8b0c178624f041da8747bd0bbb33ccef28a2"
+  },
+  "src/causalverse/evidence_s2/console/index.html": {
+    "before_sha256": "a071cceba18109af81d7006b155e0f541c95beb8ae83f6acc1e8e9b690489cbc",
+    "after_sha256": "4f3c45db1ab9711e2c6f77f6f7212895b249902b7f930ccdd165d46bcac4a668"
+  },
+  "README.md": {
+    "before_sha256": "76f026054875d5cf972b156d9efc1954469462d7982ca9863c86cfe2689919ab",
+    "after_sha256": "9247393c90ec7dff13b5ee12bd2e985fdfc4f6ce3cd943aa603c198f5acd6ccf"
+  }
+}

@@ -9,6 +9,7 @@
  import CausalGraph from './CausalGraph.svelte';
  import DetectionSummary from './DetectionSummary.svelte';
  import ProcessHMI from './ProcessHMI.svelte';
+ import LiveWorkspace from './LiveWorkspace.svelte';
  import branding from './branding.json';
  const playbackSpeeds=[0.5,1,2,4,8,16,32,64,128];
  const pages=['系统总览','工业过程监控','异常检测','故障诊断','动态因果图','模型可信度','历史实验回放'];
@@ -21,11 +22,14 @@
  let intervalData=null,ikind='delta',seed=631000,mechanism=14,dose=1,request=0,intervalRequest=0;
  $: activeStage=cursor<3600?0:readyDiagnosis?2:1;
  let selectedNode=0;let playbackTime=5400;
+ let liveMode=true,liveTime=0,liveStatus='未启动';
+ $: displayTime=liveMode?liveTime:cursor;
+ async function showArchive(){liveMode=false;playing=false;if(!trajectory){await Promise.all([load(),loadInterval()])}}
  async function get(url){let r=await fetch(url);if(!r.ok)throw new Error(`数据接口返回 ${r.status}，请检查本地档案与服务`);return r.json()}
  async function load(){const token=++request;loading=true;error='';playing=false;try{let [t,d,z]=await Promise.all([get('/api/trajectory?run='+run),get('/api/detection?run='+run),get(`/api/diagnosis?run=${run}&kind=${kind}&window=${windowSize}`)]);if(token!==request)return;trajectory=t;detection=d;diagnosis=z;cursor=Math.min(cursor,t.time.length-1);playbackTime=cursor}catch(e){if(token===request){error=e.message;trajectory=null;detection=null;diagnosis=null}}finally{if(token===request)loading=false}}
  async function diagnose(){const selected=[run,kind,Number(windowSize)];diagnosis=null;try{let z=await get(`/api/diagnosis?run=${run}&kind=${kind}&window=${windowSize}`);if(selected[0]===run&&selected[1]===kind&&selected[2]===Number(windowSize))diagnosis=z}catch(e){error=e.message}}
  async function loadInterval(){const token=++intervalRequest;intervalData=null;try{let z=await get(`/api/uncertainty?kind=${ikind}&seed=${seed}&mechanism=${mechanism}&dose=${dose}`);if(token===intervalRequest)intervalData=z}catch(e){if(token===intervalRequest){error=e.message;intervalData=null}}}
- onMount(()=>{Promise.all([get('/api/runs'),get('/api/research')]).then(async([r,s])=>{runs=r;research=s;await Promise.all([load(),loadInterval()])}).catch(e=>{error=e.message;loading=false});let frame,last=performance.now();const animate=(now)=>{const dt=Math.min((now-last)/1000,.2);last=now;if(playing&&trajectory&&!loading){playbackTime=Math.min(playbackTime+dt*Number(speed),trajectory.time.length-1);cursor=Math.floor(playbackTime);if(cursor===trajectory.time.length-1)playing=false}frame=requestAnimationFrame(animate)};frame=requestAnimationFrame(animate);return ()=>cancelAnimationFrame(frame)});
+ onMount(()=>{Promise.all([get('/api/runs'),get('/api/research')]).then(async([r,s])=>{runs=r;research=s;if(!liveMode)await Promise.all([load(),loadInterval()])}).catch(e=>{error=e.message;loading=false});let frame,last=performance.now();const animate=(now)=>{const dt=Math.min((now-last)/1000,.2);last=now;if(playing&&trajectory&&!loading){playbackTime=Math.min(playbackTime+dt*Number(speed),trajectory.time.length-1);cursor=Math.floor(playbackTime);if(cursor===trajectory.time.length-1)playing=false}frame=requestAnimationFrame(animate)};frame=requestAnimationFrame(animate);return ()=>cancelAnimationFrame(frame)});
  $: current=trajectory?.values[cursor] || [null,null,null,null];
  $: asof=detection?detection.t_seconds.filter(t=>t<=cursor).length-1:-1;
  $: alarm=asof>=0?Boolean(detection['pred_'+detector][asof]):null;
@@ -41,7 +45,7 @@
  $: group=research?.graph;
  const positions=[[390,165],[670,165],[390,325],[140,165],[140,325],[670,325],[140,435]];
  $: edges=group?group.parents.flatMap((parents,j)=>parents.filter(i=>i!==j).map(i=>({i,j}))):[];
- function selectPage(i){page=i;location.hash=String(i)}
+ function selectPage(i){page=i;location.hash=String(i);if(i===6)showArchive()}
 </script>
 
 <svelte:head><title>{branding.pageTitle} / {pages[page]}</title><link rel="icon" href={branding.favicon}/><meta name="description" content={branding.introduction}/></svelte:head>
@@ -50,11 +54,14 @@
   <div class="brand"><img src={branding.logo} alt="项目标志"/><div>{branding.name}<small>{branding.subtitle}</small></div></div>
   <div class="rail-title">诊断工作空间 <span>01</span></div>
   <nav aria-label="主导航">{#each pages as name,i}<button class:active={page===i} onclick={()=>selectPage(i)}><span class="nav-number">0{i+1}</span>{name}<span class="nav-arrow">↗</span></button>{/each}</nav>
-  <div class="rail-note"><span class="dot"></span> 只读研究工作台<p>TEP历史仿真回放<br>工业过程观测与机制诊断</p></div>
+  <div class="rail-note"><span class="dot"></span> {liveMode?'实时自主监控':'历史研究档案'}<p>{liveMode?'真实TEP持续运行':'TEP历史仿真回放'}<br>原模型 / 可追溯证据</p></div>
  </aside>
  <main>
-  <header><div class="breadcrumb">{branding.header} <span>/</span> D6 <span>/</span> {pages[page]}</div><div class="mode"><span class="dot amber"></span> TEP 历史仿真回放 <span class="pill">READ ONLY</span></div></header>
-  <section class="heading"><div><div class="eyebrow">INDUSTRIAL PROCESS / DIAGNOSTICS</div><h1>{pages[page]}</h1><p>{page===0?branding.introduction:subtitles[page]}</p></div><div class="clock" data-playback-time={playbackTime}><small>SIMULATION CLOCK</small><strong>{String(Math.floor(cursor/3600)).padStart(2,'0')}:{String(Math.floor(cursor%3600/60)).padStart(2,'0')}:{String(cursor%60).padStart(2,'0')}</strong><span>t = {cursor.toLocaleString()} s</span></div></section>
+  <header><div class="breadcrumb">{branding.header} <span>/</span> {liveMode?'LIVE / S3':'D6 / ARCHIVE'} <span>/</span> {pages[page]}</div><div class="mode"><span class="dot amber"></span> {liveMode?'TEP实时仿真 · '+liveStatus:'TEP历史仿真回放'} <span class="pill">{liveMode?'LIVE':'ARCHIVE'}</span></div></header>
+  <section class="heading"><div><div class="eyebrow">INDUSTRIAL PROCESS / DIAGNOSTICS</div><h1>{pages[page]}</h1><p>{page===0?branding.introduction:subtitles[page]}</p></div><div class="clock" data-playback-time={liveMode?liveTime:playbackTime}><small>SIMULATION CLOCK</small><strong>{String(Math.floor(displayTime/3600)).padStart(2,'0')}:{String(Math.floor(displayTime%3600/60)).padStart(2,'0')}:{String(displayTime%60).padStart(2,'0')}</strong><span>t = {displayTime.toLocaleString()} s</span></div></section>
+  <div class="toolbar"><button class:primary={liveMode} aria-pressed={liveMode} onclick={()=>{liveMode=true;playing=false}}>实时监控</button><button class:primary={!liveMode} aria-pressed={!liveMode} onclick={showArchive}>历史档案</button><span class="source">同一主平台 · 实时观测与历史结果严格分开</span></div>
+  <LiveWorkspace {page} active={liveMode} bind:clock={liveTime} bind:status={liveStatus}/>
+  {#if !liveMode}
   <div class="toolbar"><label>实验运行<select bind:value={run} onchange={load}>{#each runs as r}<option value={r.dataset_run_id}>{r.dataset_run_id} · seed {r.seed}</option>{/each}</select></label><button onclick={()=>{cursor=0;playbackTime=0;playing=false}}>回到起点</button><button class="primary" disabled={!trajectory||loading} onclick={()=>playing=!playing}>{playing?'暂停回放':'播放回放'} {playing?'Ⅱ':'▷'}</button><label>倍速<select aria-label="倍速" bind:value={speed}>{#each playbackSpeeds as rate}<option value={rate}>{rate}×</option>{/each}</select></label><button class="text-button" onclick={()=>truthVisible=!truthVisible}>{truthVisible?'隐藏':'显示'}离线真值</button></div>
   <div class="scrubber"><span>0 s</span><input aria-label="历史回放时间" type="range" min="0" max={trajectory?trajectory.time.length-1:14399} step="1" bind:value={cursor} oninput={()=>{cursor=Number(cursor);playbackTime=cursor;playing=false}}/><span>14,399 s</span></div>
   {#if truthVisible&&trajectory}<div class="notice">离线实验真值：{label(trajectory.run.fault_id)} · 故障计划启用 3600 s。此标签仅供核验，不作为诊断输入。</div>{/if}
@@ -88,6 +95,7 @@
    <div class="two-col"><section class="panel"><div class="panel-title">实验档案</div><dl><dt>Run ID</dt><dd>{run}</dd><dt>随机种子</dt><dd>{trajectory.run.seed}</dd><dt>引擎</dt><dd>TEP / Python</dd><dt>采样</dt><dd>原始1秒 / 检测180秒</dd><dt>分区</dt><dd>独立测试集</dd><dt>数据来源</dt><dd>{trajectory.source}</dd></dl><button onclick={()=>{const b=new Blob([JSON.stringify(trajectory.manifest,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=run+'_manifest.json';a.click();URL.revokeObjectURL(a.href)}}>下载原始 Manifest ↓</button></section><section class="panel"><Chart title="历史过程 · 反应釜温度 / °C" data={series(0)} shapes={marker}/></section></div><section class="panel"><div class="panel-title">数据与研究边界</div><p>全部80条D3测试运行可通过顶部选择器回放，正常和三种故障各20条。没有最佳种子筛选。</p><p>原始轨迹只读；播放控制仅移动展示时钟。模型依据窗口完整性展示已存诊断，未连接现场设备，也不执行仿真器控制写入。</p><p>故障在3600秒启用；诊断使用已知实验时钟，不代表未知起始时刻下的在线系统已经验证。</p></section>
   {/if}
   <footer><span>{branding.footer}</span><span>{branding.footerNote}</span></footer>
+  {/if}
   {/if}
  </main>
 </div>

@@ -1,0 +1,15 @@
+{
+  "version": "live-tep-1",
+  "scope": "S3_MONITORING_ONLY",
+  "backend": "python",
+  "port": 8770,
+  "step_seconds": 1,
+  "max_episode_seconds": 14400,
+  "rates": [1, 20, 100, 500],
+  "detection": {"warmup_seconds": 1800, "grid_seconds": 180, "mode": "FROZEN_SHADOW", "online_alarm_performance": "NOT_VALIDATED"},
+  "events": {"alarm": "PCA_OR_THRESHOLD", "confirmations": 2, "deduplication": "UNTIL_NON_ALARM_GRID"},
+  "diagnosis": "NOT_IMPLEMENTED_S4",
+  "optimization_allowed": false,
+  "automatic_control_allowed": false,
+  "deepseek_calls_allowed": false
+}

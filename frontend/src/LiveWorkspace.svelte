@@ -1,0 +1,48 @@
+<script>
+ import {onMount} from 'svelte';
+ import ProcessHMI from './ProcessHMI.svelte';
+ import Chart from './Chart.svelte';
+ export let page=0,active=true,clock=0,status='未启动';
+ let terminalWall=null;
+ let csrf='',episode='',rate=1,wall=0,actualRate=0,latest=null,inference=null,event=null,events=[],points=[],after=-1,busy=false,error='',fault=14,variable=0;
+ const names=['反应釜温度','冷却水出口温度','反应釜压力','冷却水阀命令'];
+ const tags=['T9 · XMEAS(9)','C21 · XMEAS(21)','P7 · XMEAS(7)','U10 · XMV(10)'];
+ const units=['°C','°C','kPa','%命令'];
+ $: values=latest?[latest.measurements[8],latest.measurements[20],latest.measurements[6],latest.commands[9]]:[null,null,null,null];
+ $: scores=inference?Object.fromEntries(Object.entries(inference.arrays).map(([k,v])=>[k,v.at(-1)])):null;
+ $: alarm=scores?Boolean(scores.pred_PCA||scores.pred_Threshold):null;
+ $: flags=scores?[8,20,6].map(i=>scores.threshold_contribution[i]>inference.limits.Threshold):[null,null,null];
+ $: contributions=scores?scores.SPE_contribution.map((v,i)=>({v,i})).sort((a,b)=>b.v-a.v).slice(0,6):[];
+ async function api(path,data){const r=await fetch(path,data?{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify(data)}:{});const v=await r.json();if(!r.ok)throw Error(v.error||String(r.status));return v}
+ async function poll(){if(!episode||busy)return;busy=true;const selected=episode;try{const v=await api('/api/status?episode='+encodeURIComponent(selected)+'&after='+after);if(selected!==episode)return;status=v.status;wall=v.wall_seconds;actualRate=v.actual_rate;latest=v.latest;clock=latest?.measurement_time??0;
+  for(const r of v.records){after=Math.max(after,r.seq);if(r.kind==='lifecycle'&&['COMPLETED','STOPPED','FAILED'].includes(r.payload.status)&&Number.isFinite(r.payload.wall_seconds))terminalWall=r.payload.wall_seconds;if(r.kind==='observation'){const o=r.payload;points=[...points.slice(-599),{t:o.measurement_time,v:[o.measurements[8],o.measurements[20],o.measurements[6],o.commands[9]]}]}else if(r.kind==='inference')inference=r.payload;else if(r.kind==='anomaly_event'){event=r.payload;events=[...events.slice(-19),r.payload]}}
+  if(terminalWall!==null){wall=terminalWall;actualRate=(latest?.state_time??0)/Math.max(.001,wall)}
+  error='';
+ }catch(e){if(e.message==='ACCESS_DENIED'){episode='';localStorage.removeItem('cv8768_episode');latest=null;inference=null;event=null;events=[];points=[];after=-1;clock=0;wall=0;actualRate=0;terminalWall=null;status='未启动';error='上次会话不可恢复，档案仍保留。请启动新的生产运行。'}else{error='实时连接/访问异常：'+e.message+'。最后观测不能代表当前仍在运行。';status='UNAVAILABLE'}}finally{busy=false}}
+ async function start(){if(busy)return;try{const v=await api('/api/start',{rate:Number(rate),limit:14400});episode=v.episode_id;localStorage.setItem('cv8768_episode',episode);after=-1;terminalWall=null;latest=null;inference=null;event=null;events=[];points=[];clock=0;status='STARTING';error='';await poll()}catch(e){error=e.message}}
+ async function control(op){try{await api('/api/control',{episode_id:episode,op});await poll()}catch(e){error=e.message}}
+ async function inject(){try{await api('/api/operator-fault',{episode_id:episode,fault_id:Number(fault)})}catch(e){error=e.message}}
+ $: trend=[{x:points.map(p=>p.t),y:points.map(p=>p.v[Number(variable)]),name:tags[Number(variable)],mode:'lines',line:{width:1.7}}];
+ onMount(()=>{let alive=true;episode=localStorage.getItem('cv8768_episode')||'';api('/api/session').then(v=>{if(alive){csrf=v.csrf;poll()}}).catch(e=>error=e.message);const timer=setInterval(poll,1000);return()=>{alive=false;clearInterval(timer)}});
+</script>
+
+{#if active}
+ <div class="toolbar live-controls"><label>新运行倍率<select bind:value={rate}><option value={1}>1:1</option><option value={20}>20×</option><option value={100}>100×</option><option value={500}>500×验收</option></select></label><button class="primary" onclick={start} disabled={!csrf||busy||['STARTING','RUNNING','PAUSED'].includes(status)}>启动生产</button><button onclick={()=>control('pause')} disabled={status!=='RUNNING'}>暂停生产</button><button onclick={()=>control('resume')} disabled={status!=='PAUSED'}>继续生产</button><button onclick={()=>control('stop')} disabled={!['STARTING','RUNNING','PAUSED'].includes(status)}>停止生产</button><span class="pill">{status}</span></div>
+ <div class="notice">实时TEP仿真 · 原PI控制 · 每秒采集41测量/12命令。检测沿用180秒网格，不具备已验证的秒级报警性能。切换历史档案不会停止生产。</div>
+ {#if error}<div class="warning-note" role="alert">{error}</div>{/if}
+ {#if page<=2}
+  {#if page===0}<div class="technical-chain">{#each ['TEP持续运行','每秒可信采集','冻结PCA / Threshold','自动异常事件'] as name,i}<div class="live-stage"><span>0{i+1}</span><strong>{name}</strong><small>{i<2?status:inference?'真实计算已执行':'WAITING · 等待暖机/网格'}</small></div>{/each}</div>{/if}
+  {#if page<=1}<div class="metrics">{#each names as name,j}<section class="metric"><div class="metric-top">{tags[j]}<span class="dot"></span></div><h3>{name}</h3><div class="reading">{values[j]?.toFixed(j===2?1:2)??'—'}<span>{units[j]}</span></div><div class="metric-foot">实时采集 <span>测量 {latest?.measurement_time??'—'} s</span></div></section>{/each}</div>{/if}
+  <div class="summary-grid"><div class="summary-card"><small>真实生产 / 墙钟 / 平均倍率</small><strong>{actualRate.toFixed(2)}×</strong><span>{status} · 仿真{clock}s / 墙钟{wall.toFixed(1)}s；平均值含暂停</span></div><div class="summary-card"><small>PCA + Threshold / 冻结推理</small><strong>{inference?inference.elapsed_ms.toFixed(3)+' ms':'WAITING'}</strong><span>{inference?'最新检测 '+inference.observation_time.at(-1)+' s':'需要1800秒暖机，之后每180秒检测'}</span></div><div class="summary-card"><small>自动异常事件</small><strong>{event?.status??'WAITING'}</strong><span>{event?.first_alarm_time!==undefined?'首次报警 '+event.first_alarm_time+' s':'未到检测时刻不等于没有异常；在线误报/漏报不可评价'}</span></div></div>
+  {#if page===1}<div class="two-col"><ProcessHMI {values} playing={status==='RUNNING'} {alarm} timestamp={clock} sensorFlags={flags} live={true}/><section class="panel"><div class="panel-title">当前实时证据 <span class="pill">LIVE</span></div><div class="evidence"><small>Episode身份</small><p class="identity">{episode||'尚未创建'}</p><p>测量时间 {latest?.measurement_time??'—'} s / 状态时间 {latest?.state_time??'—'} s</p><h2 class:warning={alarm}>{alarm===null?'等待真实检测':alarm?'统计报警':'当前网格未报警'}</h2><p>原始命令不等于实际阀位/流量。组分测量是延迟采样保持值。</p><p>气体样本年龄 {latest?.freshness.gas_age_seconds??'—'}s / 产品样本年龄 {latest?.freshness.product_age_seconds??'—'}s</p><div class="warning-note">S3只监控。实时机制诊断留待S4；优化授权 false。</div></div></section></div>{/if}
+  {#if page===2}
+   <div class="notice">这里是当前Episode原模型实际重算结果，未读取历史检测输出；统计量不是故障概率，贡献度不是物理根因。</div>
+   {#if inference}<section class="panel"><Chart title="实时异常统计量 / 原控制限归一化" data={['T2','SPE','Threshold'].map(k=>({x:inference.observation_time,y:(k==='Threshold'?inference.arrays.threshold_score:inference.arrays[k]).map(v=>v/inference.limits[k]),name:k,mode:'lines'}))}/></section><div class="two-col"><section class="panel"><div class="panel-title">最新SPE贡献</div>{#each contributions as c}<div class="bar-row"><span>XMEAS({c.i+1})</span><meter value={c.v} max={contributions[0]?.v||1}></meter><code>{c.v.toFixed(3)}</code></div>{/each}</section><section class="panel"><div class="panel-title">原报警结果</div><p>PCA：{String(scores.pred_PCA)} / Threshold：{String(scores.pred_Threshold)}</p><p>T²：{scores.T2} / SPE：{scores.SPE}</p><p>Threshold score：{scores.threshold_score}</p><p>保留原严格大于、T² OR SPE规则。事件确认不改变模型报警条件。</p></section></div>{:else}<section class="panel"><h2>WAITING：观测尚未到原检测网格</h2><p>当前 {clock}s；1800秒起、每180秒实际执行冻结模型，不能提前填入历史评分。</p></section>{/if}
+  {:else}<section class="panel"><div class="panel-title"><span>过程趋势</span><select aria-label="实时趋势变量" bind:value={variable}>{#each names as n,j}<option value={j}>{n} / {units[j]}</option>{/each}</select></div><Chart data={trend} title={names[variable]+' / '+units[variable]}/><p class="source">仅当前Episode真实采集的最近600个1秒点；图形及HMI沿用原主平台组件。</p></section>{/if}
+  <div class="two-col"><section class="panel"><div class="panel-title">自动事件时间线</div>{#each events.slice().reverse() as item}<p><code>{item.latest_time}s · {item.status}</code> {item.variables?.join('、')??'尚无报警；无在线真值，不判定误报/漏报'}</p>{/each}{#if !events.length}<p>WAITING：尚无检测事件</p>{/if}</section><section class="panel"><div class="panel-title">身份与证据追溯</div><p class="identity">Episode：{episode||'—'}</p><p>观测序号 {latest?.seq??'—'} / 数据质量 {latest?.quality??'WAITING'}</p><details><summary>查看原始观测、推理与事件证据</summary><pre>{JSON.stringify({observation:latest,inference,event},null,2)}</pre></details><details><summary>操作员故障注入实验（不作为AI输入）</summary><div class="toolbar"><select aria-label="人工故障类型" bind:value={fault}><option value={14}>IDV14 粘滞</option><option value={4}>IDV4 阶跃</option><option value={11}>IDV11 随机扰动</option></select><button onclick={inject} disabled={!['RUNNING','PAUSED'].includes(status)}>人工注入</button></div><p>仅人工实验入口；没有AI调节、模型决策或set_control调用。</p></details></section></div>
+ {:else}
+  <section class="panel"><h2>当前实时链路：{page===3?'机制诊断尚未接入':page===4?'没有针对当前运行重新识别因果图':'没有适用于当前LIVE运行的可信条件预测'}</h2><p>S3仅完成持续仿真、采集、真实检测与自动事件。原有模型、因果图和预测失败证据仍保存在“历史档案”模式，不能与当前Episode混用。</p><div class="warning-note">实时状态 {status} · 优化授权 false · 不提供自动控制</div></section>
+ {/if}
+ <footer><span>工业过程智能诊断平台 · 实时TEP自主监控</span><span>原模型真实计算 / 来源可追溯 / 无AI自动控制</span></footer>
+{/if}
+<style>.live-stage{display:grid;gap:8px;padding:18px;border:1px solid #293d47;background:#14232a;min-width:0}.live-stage span,.live-stage small{font:11px Consolas;color:#89afa9}.live-stage strong{font-size:14px;font-weight:500}.identity,pre{overflow-wrap:anywhere}pre{white-space:pre-wrap;max-height:360px;overflow:auto;font:11px Consolas}.live-controls{flex-wrap:wrap}@media(max-width:750px){.live-stage{padding:10px}.live-stage strong{font-size:11px}}</style>
